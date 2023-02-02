@@ -51,6 +51,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(268, 35);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
             // label1
             // 
@@ -74,9 +75,9 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(35, 154);
             this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(263, 35);
             this.textBox1.TabIndex = 5;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // login
             // 
