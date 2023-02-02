@@ -1,4 +1,4 @@
-﻿namespace CDD
+﻿namespace Login
 {
     partial class Form1
     {
