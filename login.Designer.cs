@@ -33,11 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(30, 208);
+            this.button1.Location = new System.Drawing.Point(30, 294);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 49);
             this.button1.TabIndex = 0;
@@ -47,7 +49,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(30, 79);
+            this.textBox2.Location = new System.Drawing.Point(30, 94);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(268, 35);
             this.textBox2.TabIndex = 2;
@@ -56,7 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 44);
+            this.label1.Location = new System.Drawing.Point(25, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 29);
             this.label1.TabIndex = 3;
@@ -65,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 122);
+            this.label2.Location = new System.Drawing.Point(25, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 29);
             this.label2.TabIndex = 4;
@@ -73,27 +75,37 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(35, 154);
+            this.textBox1.Location = new System.Drawing.Point(30, 198);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(263, 35);
             this.textBox1.TabIndex = 5;
             this.textBox1.UseSystemPasswordChar = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(33, 479);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(369, 465);
+            this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1659, 1035);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
             this.Name = "login";
             this.Text = "login";
             this.Load += new System.EventHandler(this.login_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -104,5 +116,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

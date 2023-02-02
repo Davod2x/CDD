@@ -8,15 +8,15 @@ namespace CDD
 {
     internal class User
     {
-        private string Id { get; set; }
+        private string id;
         private string Name { get; set; }
-        private string Password { get; set; }
+        private string password;
 
         public User(string id,string password)
         {
-            Id = id;
+            this.id = id;
  
-            Password = password;
+            this.password = password;
         }
     }
     

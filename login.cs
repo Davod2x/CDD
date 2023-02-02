@@ -42,7 +42,7 @@ namespace CDD
             User person = new User(id, password);
         }
 
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
