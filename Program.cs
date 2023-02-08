@@ -14,9 +14,11 @@ namespace CDD
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new login());
+            UserDB userDB = new UserDB("UserDB.txt");
+            userDB.PrintUsers();
         }
     }
 }

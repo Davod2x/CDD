@@ -9,5 +9,19 @@ namespace CDD
 {
     internal class ClassDB
     {
+        private int days;
+        private float time;
+        private float Ntime;
+
+        
+        public int Conversion()
+        {
+
+
+
+    
+        }
+
+
     }
 }

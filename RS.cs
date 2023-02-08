@@ -10,14 +10,14 @@ namespace CDD
     internal class RS
     {
         private UserDB userDB;
-        private ClassDB usserDB;
+        private ClassDB classDB;
         private TransactionDB transactionDB;
-        private FileStream classDB;
+     
 
         public RS()
         { 
             userDB = new UserDB("UserDB.txt");
-            classDB = File.Open("ClassDB.txt", FileMode.Open);
+            classDB = new ClassDB();
         }
     }
         

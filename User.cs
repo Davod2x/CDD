@@ -107,7 +107,12 @@ namespace CDD
             this.password = password;
         }
 
-        public abstract void Prompt();  // children classes decide functionality
+        public override string ToString()
+        {
+            return this.getfName() + this.getmName() + this.getlName() + this.getUsername() + this.getPassword() + this.getid();
+        }
+
+        //public abstract void Prompt();  // children classes decide functionality
     }
     
 }
