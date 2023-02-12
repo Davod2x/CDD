@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CDD
 {
-    internal class ClassDB
+    internal class Class
     {
         private int days;
         private float time;
@@ -23,5 +23,13 @@ namespace CDD
         //}
 
 
+
+
+
+
     }
 }
+
+
+
+
