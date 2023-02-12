@@ -16,7 +16,7 @@ namespace CDD
     {
         string username;
         string password;
-        UserDB db = new UserDB("UserDB.txt");
+        RS rs = new RS();
         User user;
         public login()
         {
@@ -29,36 +29,26 @@ namespace CDD
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-           username = textBox1.Text;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-           password = textBox2.Text;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (db.validCredentials(username, password)){
-                user = db.GetUser(username);
-            }
-          
-            if(user.getStatus() == "faculty")
+            if (rs.userDB.validCredentials(username, password))
             {
-                FacultyWindow window = new FacultyWindow();
-                window.Show();
-            }
-            else if(user.getStatus() == "admin")
-            {
-                AdminWindow window = new AdminWindow();
-                window.Show();
-            }
-            else
-            {
-                StudentWindow window = new StudentWindow();
-                window.Show();
+                user = rs.userDB.GetUser(username);
+                if (user.getStatus() == "faculty")
+                {
+                    FacultyWindow window = new FacultyWindow();
+                    window.Show();
+                }
+                else if (user.getStatus() == "admin")
+                {
+                    AdminWindow window = new AdminWindow();
+                    window.Show();
+                }
+                else
+                {
+                    StudentWindow window = new StudentWindow();
+                    window.Show();
+                }
             }
         }
 
@@ -66,10 +56,14 @@ namespace CDD
         {
 
         }
-
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
+            username= textBox2.Text;
+        }
 
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            password= textBox1.Text;
         }
     }
 }

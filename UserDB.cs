@@ -7,21 +7,24 @@ using System.IO;
 
 namespace CDD
 {
-    internal class UserDB : RS
+    internal class UserDB
     {
         
         public List<User> users;
-        private char[] whitespace = new char[] { ' ', '\t' };
-        
+        private char[] whitespace;
+        private string[] lines;
+        private string[] strings;
+
 
         public UserDB(string fname) {
-            string[] lines = File.ReadAllLines(fname);
+            this.lines = File.ReadAllLines(fname);
             this.users = new List<User>();
+            this.whitespace = new char[] { ' ', '\t' };
             List<string> s = new List<string>();
         
                 foreach (string line in lines) {
                     s.RemoveAll(x => x.Length > 0);
-                    string[] strings= line.Split(whitespace);
+                    this.strings= line.Split(this.whitespace);
                     foreach (string str in strings)
                     {
                     if (str.Length > 0) 
