@@ -14,13 +14,13 @@ namespace CDD
         private float Ntime;
 
         
-        public int Conversion()
-        {
+        //public int Conversion()
+        //{
 
 
 
     
-        }
+        //}
 
 
     }

@@ -19,6 +19,7 @@ namespace CDD
             userDB = new UserDB("UserDB.txt");
             classDB = new ClassDB();
         }
+       
     }
         
         

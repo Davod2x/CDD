@@ -14,17 +14,14 @@ namespace CDD
         private char[] whitespace;
         protected string[] strings;
         public DataBase() { 
-            this.strings = new string[];
+            this.strings = new string[] { };
             this.whitespace = new char[] { ' ', '\t' };
         }
-        public void readInFile(string filePath)
+        public void readInFile(string filePath, string type)
         {
             string[] lines = File.ReadAllLines(filePath);
-            s.RemoveAll(s=> s.Length > 0);
             foreach (string line in lines)
             {
-
-               
                 foreach (string str in strings)
                 {
                     if (str.Length > 0)

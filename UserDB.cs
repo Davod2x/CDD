@@ -7,10 +7,10 @@ using System.IO;
 
 namespace CDD
 {
-    internal class UserDB
+    internal class UserDB : RS
     {
         
-        private List<User> users;
+        public List<User> users;
         private char[] whitespace = new char[] { ' ', '\t' };
         
 
@@ -31,6 +31,31 @@ namespace CDD
                     users.Add(user);
             }
         }
+        public bool validCredentials(string username, string password)
+        {
+            bool valid = false;
+            foreach (User user in this.users)
+            {
+                if (user.getUsername().Equals(username) && user.getPassword().Equals(password))
+                {
+                    valid = true;
+                }
+            }
+            return valid;
+        }
+        public User GetUser(string username)
+        {
+            User desired = null;
+            foreach (User user in this.users)
+            {
+                if (user.getUsername().Equals(username))
+                {
+                    desired = user;
+                }
+            }
+            return desired;
+        }
+
         private void addUser(User user)
         {
             users.Add(user);

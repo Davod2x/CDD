@@ -14,13 +14,15 @@ namespace CDD
     
     public partial class login : Form
     {
-        string id;
+        string username;
         string password;
-        
+        UserDB db = new UserDB("UserDB.txt");
+        User user;
         public login()
         {
             InitializeComponent();
         }
+
 
         private void login_Load(object sender, EventArgs e)
         {
@@ -29,7 +31,7 @@ namespace CDD
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            id = textBox1.Text;
+           username = textBox1.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -39,7 +41,25 @@ namespace CDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (db.validCredentials(username, password)){
+                user = db.GetUser(username);
+            }
+          
+            if(user.getStatus() == "faculty")
+            {
+                FacultyWindow window = new FacultyWindow();
+                window.Show();
+            }
+            else if(user.getStatus() == "admin")
+            {
+                AdminWindow window = new AdminWindow();
+                window.Show();
+            }
+            else
+            {
+                StudentWindow window = new StudentWindow();
+                window.Show();
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
