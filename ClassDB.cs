@@ -33,20 +33,32 @@ namespace CDD
                 }
                 string fancyName = s[0];
                 int loc = 1;
+                int realLoc = 1;
                 string courseName = "";
+                string realCourseName = "";
                 bool inUsers = false;
-                while (loc < s.Count && !inUsers)
+                string last = "";
+                //while (loc < s.Count && !inUsers)
+                //{
+                foreach (User user in userDB.users)
                 {
-                    foreach (User user in userDB.users)
+                    courseName = "";
+                    loc = 1;
+                    while (loc < s.Count && !inUsers)
                     {
                         if (s[loc] != user.getUsername())
                         {
                             courseName = courseName + s[loc] + " ";
                         }
                         else
+                        {
                             inUsers = true;
+                            realCourseName = courseName;
+                            realLoc = loc;
+
+                        }
+                        loc++;
                     }
-                    loc++;
                 }
                 string times= "";
                 int place = loc + 4;
@@ -55,7 +67,7 @@ namespace CDD
                     times = times + s[place] + " ";
                     place++;
                 }
-                Class c = new Class(s[0], courseName, s[loc], int.Parse(s[loc+1]), int.Parse(s[loc+2]), s[loc+3], times);
+                Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc+1], int.Parse(s[realLoc+2]), s[realLoc+3], times);
                 classes.Add(c);
             }
         }
