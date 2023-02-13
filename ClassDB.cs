@@ -7,18 +7,59 @@ using System.IO;
 
 namespace CDD
 {
-    internal class Class
+    internal class ClassDB
     {
-        public string name;
-        public string prof;
-        private int days;
-        private float time;
-        private float Ntime;
+        public List<Class> classes;
+        private char[] whitespace;
+        private string[] lines;
+        private string[] strings;
 
-        public Class(float name, float prof, int days, float time, float Ntime)
+
+        public ClassDB(string fname, UserDB userDB)
         {
+            this.lines = File.ReadAllLines(fname);
+            this.classes = new List<Class>();
+            this.whitespace = new char[] { ' ', '\t' };
+            List<string> s = new List<string>();
 
+            foreach (string line in lines)
+            {
+                s.RemoveAll(x => x.Length > 0);
+                this.strings = line.Split(this.whitespace);
+                foreach (string str in strings)
+                {
+                    if (str.Length > 0)
+                        s.Add(str);
+                }
+                string fancyName = s[0];
+                int loc = 1;
+                string courseName = "";
+                bool inUsers = false;
+                while (loc < s.Count && !inUsers)
+                {
+                    foreach (User user in userDB.users)
+                    {
+                        if (s[loc] != user.getUsername())
+                        {
+                            courseName = courseName + s[loc] + " ";
+                        }
+                        else
+                            inUsers = true;
+                    }
+                    loc++;
+                }
+                string times= "";
+                int place = loc + 4;
+                while (place < s.Count)
+                {
+                    times = times + s[place] + " ";
+                    place++;
+                }
+                Class c = new Class(s[0], courseName, s[loc], int.Parse(s[loc+1]), int.Parse(s[loc+2]), s[loc+3], times);
+                classes.Add(c);
+            }
         }
+
 
         public int dayConversion(int days)
         {
@@ -80,7 +121,7 @@ namespace CDD
 
             return ntime;
         }
-        public void lenghtConvo(int len)
+        public void lengthConvo(int len)
         {
             if (len == 2)
             {
