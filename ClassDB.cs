@@ -61,13 +61,14 @@ namespace CDD
                     }
                 }
                 string times = "";
-                int place = loc + 4;
+                int place = realLoc + 4;
                 while (place < s.Count)
                 {
-                    times = times + s[place] + " ";
+                    times = times + s[place] + " "; // make this .add to an array
                     place++;
                 }
                 Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), s[realLoc + 3], times);
+
                 classes.Add(c);
             }
         }
