@@ -24,7 +24,7 @@ namespace CDD
         public void findTransaction(string action)
         {
             bool found = false;
-            while (found == false)
+            while (!found)
             {
 
             }

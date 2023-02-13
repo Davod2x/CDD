@@ -14,13 +14,8 @@ namespace CDD
         private string[] lines;
         private string[] strings;
 
-
-        public ClassDB(string fname, UserDB userDB)
+        public Class(float name, float prof, int days, float time, float Ntime)
         {
-            this.lines = File.ReadAllLines(fname);
-            this.classes = new List<Class>();
-            this.whitespace = new char[] { ' ', '\t' };
-            List<string> s = new List<string>();
 
             foreach (string line in lines)
             {
