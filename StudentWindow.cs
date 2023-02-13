@@ -12,7 +12,7 @@ namespace CDD
 {
     public partial class StudentWindow : Form
     {
-        ClassDB db= new ClassDB("ClassDB.txt");
+       
         public StudentWindow()
         {
             InitializeComponent();
@@ -30,14 +30,18 @@ namespace CDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            UserDB udb = new UserDB("UserDB.txt");
+            ClassDB cdb = new ClassDB("ClassDB.txt", udb);
+            foreach (Class c in cdb.classes)
+            {
+                listBox1.Items.Add(c.ToString());
+            }
+            listBox1.Visible= true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (Class c in db.Classes) {
-                listBox1.Items.Add(c);
-                    }
+
         }
     }
 }
