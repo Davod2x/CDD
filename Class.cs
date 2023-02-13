@@ -13,7 +13,7 @@ namespace CDD
         private string ClassNum { get; set; }
         private string Section { get; set; }
         private string Prof { get; set; }
-        private float Credits { get; set; }
+        private string Credits { get; set; }
         private int Seats { get; set; }
         private int SeatsAvail { get; set; }
         private string TimeBlocks { get; set; }
@@ -21,7 +21,7 @@ namespace CDD
         private string Time { get; set; }
         private int TimeLen { get; set; }
 
-        public Class(string dpt, string name,  string prof, float credits, int seats, string timeBlocks, string days)
+        public Class(string dpt, string name,  string prof, string credits, int seats, string timeBlocks, string days)
         {
             this.Dpt = dpt;
             this.Name = name;
