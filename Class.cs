@@ -8,33 +8,38 @@ namespace CDD
 {
     internal class Class
     {
-        private string name { get; set; }
-        private string dpt { get; set; }
-        private string classNum { get; set; }
-        private string section { get; set; }
-        private string prof { get; set; }
-        private float credits { get; set; }
-        private int seats { get; set; }
-        private int seatsAvail { get; set; }
-        private string timeBlocks { get; set; }
-        private string days { get; set; }
-        private string time { get; set; }
-        private int timeLen { get; set; }
+        private string Name { get; set; }
+        private string Dpt { get; set; }
+        private string ClassNum { get; set; }
+        private string Section { get; set; }
+        private string Prof { get; set; }
+        private float Credits { get; set; }
+        private int Seats { get; set; }
+        private int SeatsAvail { get; set; }
+        private string TimeBlocks { get; set; }
+        private string Days { get; set; }
+        private string Time { get; set; }
+        private int TimeLen { get; set; }
 
         public Class(string dpt, string name,  string prof, float credits, int seats, string timeBlocks, string days)
         {
-            this.dpt = dpt;
-            this.name = name;
-            this.classNum = "";
-            this.section = "";
-            this.prof = prof;
-            this.credits = credits;
-            this.seats = seats;
-            this.seatsAvail = seats;
-            this.timeBlocks = timeBlocks;
-            this.days = days;
-            this.time = "";
-            this.timeLen = 0;
+            this.Dpt = dpt;
+            this.Name = name;
+            this.ClassNum = "";
+            this.Section = "";
+            this.Prof = prof;
+            this.Credits = credits;
+            this.Seats = seats;
+            this.SeatsAvail = seats;
+            this.TimeBlocks = timeBlocks;
+            this.Days = days;
+            this.Time = "";
+            this.TimeLen = 0;
+        }
+
+        public override string ToString()
+        {
+            return this.Dpt + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.TimeBlocks + " " + this.Days;
         }
     }
 

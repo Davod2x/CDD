@@ -133,9 +133,13 @@ namespace CDD
 
 
         }
-
-
-
+        public void PrintUsers()
+        {
+            foreach (Class c in classes)
+            {
+                Console.WriteLine(c.ToString());
+            }
+        }
 
 
 
