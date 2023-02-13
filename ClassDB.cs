@@ -13,7 +13,10 @@ namespace CDD
         private float time;
         private float Ntime;
 
-        
+        public Class()
+        {
+
+        }
         //public int Conversion()
         //{
 
