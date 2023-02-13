@@ -145,7 +145,7 @@ namespace CDD
 
 
         }
-        public void PrintUsers()
+        public void PrintClasses()
         {
             foreach (Class c in classes)
             {

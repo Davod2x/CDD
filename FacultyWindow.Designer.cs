@@ -45,9 +45,11 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 29;
             this.listBox1.Location = new System.Drawing.Point(13, 80);
             this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(775, 236);
             this.listBox1.TabIndex = 1;
             this.listBox1.Visible = false;

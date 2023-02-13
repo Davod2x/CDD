@@ -50,6 +50,12 @@ namespace CDD
                     window.Show();
                 }
             }
+            else
+            {
+                textBox3.Visible = true;
+                textBox1.Clear();
+                textBox2.Clear();
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -64,6 +70,11 @@ namespace CDD
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             password= textBox1.Text;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
