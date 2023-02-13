@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CDD
 {
-    internal class Class
+    internal class ClassDB
     {
         public string name;
         public string prof;
@@ -15,10 +15,10 @@ namespace CDD
         private float time;
         private float Ntime;
 
-        public Class(float name, float prof, int days, float time, float Ntime)
-        {
+        //public Class(float name, float prof, int days, float time, float Ntime)
+        //{
 
-        }
+        //}
 
         public int dayConversion(int days)
         {

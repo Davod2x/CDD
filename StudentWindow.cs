@@ -12,6 +12,7 @@ namespace CDD
 {
     public partial class StudentWindow : Form
     {
+        ClassDB db= new ClassDB("ClassDB.txt");
         public StudentWindow()
         {
             InitializeComponent();
@@ -20,6 +21,23 @@ namespace CDD
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Class c in db.Classes) {
+                listBox1.Items.Add(c);
+                    }
         }
     }
 }
