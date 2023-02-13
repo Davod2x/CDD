@@ -16,5 +16,21 @@ namespace CDD
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserDB udb = new UserDB("UserDB.txt");
+            ClassDB cdb = new ClassDB("ClassDB.txt", udb);
+            foreach (Class c in cdb.classes)
+            {
+                listBox1.Items.Add(c.ToString());
+            }
+            listBox1.Visible = true;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
