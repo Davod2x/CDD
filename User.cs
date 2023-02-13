@@ -6,27 +6,25 @@ using System.Threading.Tasks;
 
 namespace CDD
 {
-    internal class User 
+    internal abstract class User
     {
-        private string fname;
-        private string lname;
-        private string mname;
-        private string status;
-        private string username;        
-        private string password;
-        private string id;
+        protected string fname;
+        protected string lname;
+        protected string mname;
+        protected string status;
+        protected string username;
+        protected string password;
 
 
-        public User(string fname,string lname, string mname, string status, string username,
-                    string password, string id)
+        public User(string fname, string lname, string mname, string username,
+                    string password)
         {
             this.fname = fname;
             this.lname = lname;
             this.mname = mname;
-            this.status = status;
+            this.status = "";
             this.username = username;
             this.password = password;
-            this.id = id;
 
         }
 
@@ -55,15 +53,6 @@ namespace CDD
         public void setmName(string name)
         {
             mname = name;
-        }
-
-        public string getid()
-        {
-            return id;
-        }
-        public void setid(string num)
-        {
-            id = num;
         }
 
         public string getStatus()
@@ -109,10 +98,9 @@ namespace CDD
 
         public override string ToString()
         {
-            return this.getfName() + this.getmName() + this.getlName() + this.getUsername() + this.getPassword() + this.getid();
+            return this.getfName() + this.getmName() + this.getlName() + this.getUsername() + this.getPassword();
         }
 
-        //public abstract void Prompt();  // children classes decide functionality
+        // public abstract void Prompt();  // children classes decide functionality
     }
-    
 }

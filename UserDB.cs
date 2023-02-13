@@ -9,29 +9,43 @@ namespace CDD
 {
     internal class UserDB
     {
-        
+
         public List<User> users;
         private char[] whitespace;
         private string[] lines;
         private string[] strings;
 
 
-        public UserDB(string fname) {
+        public UserDB(string fname)
+        {
             this.lines = File.ReadAllLines(fname);
             this.users = new List<User>();
             this.whitespace = new char[] { ' ', '\t' };
             List<string> s = new List<string>();
-        
-                foreach (string line in lines) {
-                    s.RemoveAll(x => x.Length > 0);
-                    this.strings= line.Split(this.whitespace);
-                    foreach (string str in strings)
-                    {
-                    if (str.Length > 0) 
+
+            foreach (string line in lines)
+            {
+                s.RemoveAll(x => x.Length > 0);
+                this.strings = line.Split(this.whitespace);
+                foreach (string str in strings)
+                {
+                    if (str.Length > 0)
                         s.Add(str);
-                    }
-                    User user = new User(s[2], s[4], s[3], s[5], s[0], s[1],"0000");
-                    users.Add(user);
+                }
+                User user;
+                if (s[5] == "admin")
+                {
+                    user = new Admin(s[2], s[4], s[3], s[0], s[1]);
+                }
+                else if (s[5] == "faculty")
+                {
+                    user = new Faculty(s[2], s[4], s[3], s[0], s[1]);
+                }
+                else
+                {
+                    user = new Student(s[2], s[4], s[3], s[0], s[1]);
+                }
+                users.Add(user);
             }
         }
         public bool validCredentials(string username, string password)
@@ -63,6 +77,10 @@ namespace CDD
         {
             users.Add(user);
         }
+        private void removeUser(User user)
+        {
+            users.Remove(user);
+        }
         public void PrintUsers()
         {
             foreach (User user in users)
@@ -74,3 +92,4 @@ namespace CDD
 
     }
 }
+

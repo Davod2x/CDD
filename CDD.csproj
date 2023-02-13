@@ -52,6 +52,10 @@
     <Compile Include="AdminWindow.Designer.cs">
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class.cs" />
+    <Compile Include="Faculty.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="ClassDB.cs" />
     <Compile Include="Component1.cs">
       <SubType>Component</SubType>
