@@ -14,8 +14,13 @@ namespace CDD
         private string[] lines;
         private string[] strings;
 
-        public Class(float name, float prof, int days, float time, float Ntime)
+
+        public ClassDB(string fname, UserDB userDB)
         {
+            this.lines = File.ReadAllLines(fname);
+            this.classes = new List<Class>();
+            this.whitespace = new char[] { ' ', '\t' };
+            List<string> s = new List<string>();
 
             foreach (string line in lines)
             {
@@ -55,14 +60,14 @@ namespace CDD
                         loc++;
                     }
                 }
-                string times= "";
+                string times = "";
                 int place = loc + 4;
                 while (place < s.Count)
                 {
                     times = times + s[place] + " ";
                     place++;
                 }
-                Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc+1], int.Parse(s[realLoc+2]), s[realLoc+3], times);
+                Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), s[realLoc + 3], times);
                 classes.Add(c);
             }
         }
@@ -103,10 +108,10 @@ namespace CDD
         public float timeConversion(float time)
         {
             float ntime;
-          
-            if (time >= 12 )
+
+            if (time >= 12)
             {
-               
+
                 if (time == 12)
                 {
                     ntime = 12;
