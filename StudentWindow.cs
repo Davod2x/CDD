@@ -32,21 +32,21 @@ namespace CDD
         {
             UserDB udb = new UserDB("UserDB.txt");
             ClassDB cdb = new ClassDB("ClassDB.txt", udb);
-            //string[] row;
+            List<string> r = new List<string>();
+            string[] row;
+            char[] ch = new char[] { ' ' };
             foreach (Class c in cdb.classes)
             {
-                //row = new string[]{ c.Dpt, c.Name, c.Prof, c.Seats.ToString(), c.Credits, c.TimeBlocks + " " + c.Days };
-                //dataGridView1.Rows.Add(row);
-                //for(int i = 0; i < dataGridView1.ColumnCount; i++)
-                //{
-                //    dataGridView1.AutoResizeColumn(1);
-                //}
+                row = c.ToString().Split(ch);
+              
 
-                listBox1.Items.Add(c.ToString());
-                listBox1.Items.Add('\n');
+                dataGridView1.Rows.Add(row);
+
+                //listBox1.Items.Add(c.ToString());
+                //listBox1.Items.Add('\n');
             }
-            label1.Visible = true;
-            listBox1.Visible = true;
+            //label1.Visible = true;
+            //listBox1.Visible = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,6 +65,11 @@ namespace CDD
         }
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

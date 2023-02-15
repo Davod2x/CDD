@@ -8,18 +8,18 @@ namespace CDD
 {
     internal class Class
     {
-        private string Name { get; set; }
-        private string Dpt { get; set; }
-        private string ClassNum { get; set; }
-        private string Section { get; set; }
-        private string Prof { get; set; }
-        private string Credits { get; set; }
-        private int Seats { get; set; }
-        private int SeatsAvail { get; set; }
-        private string TimeBlocks { get; set; }
-        private string Days { get; set; }
-        private string Time { get; set; }
-        private int TimeLen { get; set; }
+        public string Name { get; private set; }
+        public string Dpt { get; private set; }
+        public string ClassNum { get; private set; }
+        public string Section { get; private set; }
+        public string Prof { get; private set; }
+        public string Credits { get; private set; }
+        public int Seats { get; private set; }
+        public int SeatsAvail { get; private set; }
+        public string TimeBlocks { get; private set; }
+        public string Days { get; private set; }
+        public string Time { get; private set; }
+        public int TimeLen { get; private set; }
 
         public Class(string dpt, string name,  string prof, string credits, int seats, string timeBlocks, string days)
         {

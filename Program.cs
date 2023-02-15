@@ -19,7 +19,7 @@ namespace CDD
             Application.Run(new login());
             //UserDB udb = new UserDB("UserDB.txt");
             //ClassDB db = new ClassDB("ClassDB.txt", udb);
-            //db.PrintUsers();
+            //db.PrintClasses();
         }
     }
 }

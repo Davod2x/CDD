@@ -61,7 +61,7 @@ namespace CDD
                     }
                 }
                 string times = "";
-                int place = loc + 4;
+                int place = realLoc + 4;
                 while (place < s.Count)
                 {
                     times = times + s[place] + " ";
