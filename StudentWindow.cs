@@ -41,12 +41,8 @@ namespace CDD
               
 
                 dataGridView1.Rows.Add(row);
-
-                //listBox1.Items.Add(c.ToString());
-                //listBox1.Items.Add('\n');
             }
-            //label1.Visible = true;
-            //listBox1.Visible = true;
+            dataGridView1.Visible = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

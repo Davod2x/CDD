@@ -65,8 +65,9 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 92;
             this.dataGridView1.RowTemplate.Height = 37;
-            this.dataGridView1.Size = new System.Drawing.Size(1171, 405);
+            this.dataGridView1.Size = new System.Drawing.Size(1870, 405);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // Class
@@ -83,7 +84,7 @@
             this.CourseName.HeaderText = "Course Name";
             this.CourseName.MinimumWidth = 11;
             this.CourseName.Name = "CourseName";
-            this.CourseName.Width = 211;
+            this.CourseName.Width = 194;
             // 
             // Instructor
             // 

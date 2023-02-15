@@ -29,7 +29,15 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Credits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeatsAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Days = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -42,28 +50,92 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
+            // dataGridView1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 29;
-            this.listBox1.Location = new System.Drawing.Point(13, 80);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(775, 236);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.Visible = false;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Class,
+            this.CourseName,
+            this.Instructor,
+            this.Credits,
+            this.SeatsAvailable,
+            this.Days,
+            this.Time});
+            this.dataGridView1.Location = new System.Drawing.Point(13, 111);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 92;
+            this.dataGridView1.RowTemplate.Height = 37;
+            this.dataGridView1.Size = new System.Drawing.Size(1951, 405);
+            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.Visible = false;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Class
+            // 
+            this.Class.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Class.HeaderText = "Class";
+            this.Class.MinimumWidth = 11;
+            this.Class.Name = "Class";
+            this.Class.Width = 122;
+            // 
+            // CourseName
+            // 
+            this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CourseName.HeaderText = "Course Name";
+            this.CourseName.MinimumWidth = 11;
+            this.CourseName.Name = "CourseName";
+            this.CourseName.Width = 194;
+            // 
+            // Instructor
+            // 
+            this.Instructor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Instructor.HeaderText = "instructor";
+            this.Instructor.MinimumWidth = 11;
+            this.Instructor.Name = "Instructor";
+            this.Instructor.Width = 160;
+            // 
+            // Credits
+            // 
+            this.Credits.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Credits.HeaderText = "Credits";
+            this.Credits.MinimumWidth = 11;
+            this.Credits.Name = "Credits";
+            this.Credits.Width = 139;
+            // 
+            // SeatsAvailable
+            // 
+            this.SeatsAvailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SeatsAvailable.HeaderText = "Seats Available";
+            this.SeatsAvailable.MinimumWidth = 11;
+            this.SeatsAvailable.Name = "SeatsAvailable";
+            this.SeatsAvailable.Width = 209;
+            // 
+            // Days
+            // 
+            this.Days.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Days.HeaderText = "Days";
+            this.Days.MinimumWidth = 11;
+            this.Days.Name = "Days";
+            this.Days.Width = 115;
+            // 
+            // Time
+            // 
+            this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Time.HeaderText = "Time";
+            this.Time.MinimumWidth = 11;
+            this.Time.Name = "Time";
+            this.Time.Width = 118;
             // 
             // FacultyWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2064, 1219);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "FacultyWindow";
             this.Text = "FacultyWindow";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,6 +143,13 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Class;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Instructor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Credits;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SeatsAvailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Days;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
     }
 }

@@ -15,6 +15,7 @@ namespace CDD
         private string[] strings;
 
 
+
         public ClassDB(string fname, UserDB userDB)
         {
             this.lines = File.ReadAllLines(fname);
@@ -24,7 +25,7 @@ namespace CDD
 
             foreach (string line in lines)
             {
-                s.RemoveAll(x => x.Length > 0);
+                s.RemoveAll(i => i.Length > 0);
                 this.strings = line.Split(this.whitespace);
                 foreach (string str in strings)
                 {
@@ -48,7 +49,7 @@ namespace CDD
                     {
                         if (s[loc] != user.getUsername())
                         {
-                            courseName = courseName + s[loc] + " ";
+                            courseName = courseName + s[loc];
                         }
                         else
                         {
@@ -67,73 +68,109 @@ namespace CDD
                     times = times + s[place] + " "; // make this .add to an array
                     place++;
                 }
-                Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), s[realLoc + 3], times);
+                string x = times.Substring(0, 2);
+                //string y = times.Substring(3, 4);
+                int d = int.Parse(x);
+               // int t = int.Parse(y);
+                string days = dayConversion(d);
+
+
+
+                string numTimes = s[loc + 3]; //Timeblocks
+                Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), days, times);
 
                 classes.Add(c);
             }
         }
 
 
-        public int dayConversion(int days)
+        public static string Reverse(string Input)
         {
 
-            if (days / 16 >= 1)
+            // Converting string to character array
+            char[] charArray = Input.ToCharArray();
+
+            // Declaring an empty string
+            string reversedString = String.Empty;
+
+            // Iterating the each character from right to left
+            for (int i = charArray.Length - 1; i > -1; i--)
             {
-                Console.Out.WriteLine("Friday");
-                days = days - 16;
-            }
-            if (days / 8 >= 1)
-            {
-                Console.Out.WriteLine("Thursday");
-                days = days - 8;
-            }
-            if (days / 4 >= 1)
-            {
-                Console.Out.WriteLine("Wednesday");
-                days = days - 4;
-            }
-            if (days / 2 >= 1)
-            {
-                Console.Out.WriteLine("Tuesday");
-                days = days - 2;
-            }
-            if (days / 1 >= 1)
-            {
-                Console.Out.WriteLine("Monday");
-                days = days - 1;
+
+                // Append each character to the reversedstring.
+                reversedString += charArray[i];
             }
 
-            return days;
+            // Return the reversed string.
+            return reversedString;
         }
 
-        public float timeConversion(float time)
+
+
+
+
+        public string dayConversion(int d)
         {
-            float ntime;
+            string days = "";
 
-            if (time >= 12)
+            if (d / 16 >= 1)
             {
-
-                if (time == 12)
-                {
-                    ntime = 12;
-                }
-                else
-                {
-                    ntime = time - 12;
-                }
-                Console.Out.WriteLine("PM");
+                days = days + "F";
+                d = d - 16;
+            }
+            if (d / 8 >= 1)
+            {
+                days = days + "R";
+                d = d - 8;
+            }
+            if (d / 4 >= 1)
+            {
+                days = days + "W";
+                d = d - 4;
+            }
+            if (d / 2 >= 1)
+            {
+                days = days + "T";
+                d = d - 2;
+            }
+            if (d / 1 >= 1)
+            {
+                days = days + "M";
+                d = d - 1;
             }
 
-            else
-            {
-                ntime = time;
-                Console.Out.WriteLine("AM");
-            }
-
-
-
-            return ntime;
+            return Reverse(days);
         }
+
+        //public float timeConversion(int time)
+        //{
+        //    string ntime;
+
+        //    if (time >= 12)
+        //    {
+
+        //        if (time == 12)
+        //        {
+        //            ntime = time + " AM" ;
+        //        }
+        //        else
+        //        {
+        //            time = time - 12;
+        //        }
+        //        ntime = time + " PM";
+        //    }
+
+        //    else
+        //    {
+        //        ntime = time;
+        //        Console.Out.WriteLine("AM");
+        //    }
+
+
+
+        //    return ntime;
+        //}
+
         public void lengthConvo(int len)
         {
             if (len == 2)
@@ -154,6 +191,11 @@ namespace CDD
             }
         }
 
+        public void Calculation(){
+        
+            
+            
+        }
 
 
     }

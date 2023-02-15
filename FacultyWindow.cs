@@ -21,14 +21,22 @@ namespace CDD
         {
             UserDB udb = new UserDB("UserDB.txt");
             ClassDB cdb = new ClassDB("ClassDB.txt", udb);
+            List<string> r = new List<string>();
+            string[] row;
+            char[] ch = new char[] { ' ' };
             foreach (Class c in cdb.classes)
             {
-                listBox1.Items.Add(c.ToString());
+                row = c.ToString().Split(ch);
+
+
+                dataGridView1.Rows.Add(row);
             }
-            listBox1.Visible = true;
+            dataGridView1.Visible = true;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+   
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
