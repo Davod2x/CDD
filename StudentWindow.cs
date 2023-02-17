@@ -32,7 +32,7 @@ namespace CDD
         {
             UserDB udb = new UserDB("UserDB.txt");
             ClassDB cdb = new ClassDB("ClassDB.txt", udb);
-            List<string> r = new List<string>();
+            
             string[] row;
             char[] ch = new char[] { ' ' };
             foreach (Class c in cdb.classes)

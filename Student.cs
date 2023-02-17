@@ -15,6 +15,10 @@ namespace CDD
 
         }
 
+        public void addClass(Class c)
+        {
+            
+        }
     }
 }
 

@@ -37,12 +37,17 @@
             this.SeatsAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Days = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.viewCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSceduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCourseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
+            this.button1.Location = new System.Drawing.Point(12, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 57);
             this.button1.TabIndex = 0;
@@ -126,6 +131,38 @@
             this.Time.Name = "Time";
             this.Time.Width = 118;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewCoursesToolStripMenuItem,
+            this.viewSceduleToolStripMenuItem,
+            this.viewCourseHistoryToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1917, 45);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // viewCoursesToolStripMenuItem
+            // 
+            this.viewCoursesToolStripMenuItem.Name = "viewCoursesToolStripMenuItem";
+            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(197, 41);
+            this.viewCoursesToolStripMenuItem.Text = "View Courses";
+            // 
+            // viewSceduleToolStripMenuItem
+            // 
+            this.viewSceduleToolStripMenuItem.Name = "viewSceduleToolStripMenuItem";
+            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 41);
+            this.viewSceduleToolStripMenuItem.Text = "View Scedule";
+            // 
+            // viewCourseHistoryToolStripMenuItem
+            // 
+            this.viewCourseHistoryToolStripMenuItem.Name = "viewCourseHistoryToolStripMenuItem";
+            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 41);
+            this.viewCourseHistoryToolStripMenuItem.Text = "View Course History";
+            // 
             // StudentWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -133,10 +170,15 @@
             this.ClientSize = new System.Drawing.Size(1917, 983);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentWindow";
             this.Text = "StudentWindow";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -151,5 +193,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SeatsAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Days;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem viewCoursesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewSceduleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewCourseHistoryToolStripMenuItem;
     }
 }

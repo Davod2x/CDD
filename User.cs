@@ -14,6 +14,7 @@ namespace CDD
         protected string status;
         protected string username;
         protected string password;
+        protected string[] classes;
 
 
         public User(string fname, string lname, string mname, string username,

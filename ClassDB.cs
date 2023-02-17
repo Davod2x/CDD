@@ -61,25 +61,53 @@ namespace CDD
                         loc++;
                     }
                 }
-                string times = "";
+                //string times = "";
                 int place = realLoc + 4;
                 while (place < s.Count)
                 {
-                    times = times + s[place] + " "; // make this .add to an array
+                    string times = "";
+                    times = s[place]; // make this .add to an array
+                    string x = times.Substring(0, 2);
+                    string y = times.Substring(2, 2);
+                    string z = times.Substring(times.Length -1, 1);
+                    Console.WriteLine(x);
+                    Console.WriteLine(y);
+                    int d = int.Parse(x);
+                    int t = int.Parse(y);
+                    int m = int.Parse(z);
+                    string days = dayConversion(d);
+                    string timee = timeConversion(t);
+                    int a = m + t;
+                    string endtime = timeConversion(a);
+                    string formattedTime = timee + "-" + endtime;
+
+
+
+
+                    //string numTimes = s[loc + 3]; //Timeblocks
+
+                    Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), days, formattedTime);
+
+                    classes.Add(c);
                     place++;
                 }
-                string x = times.Substring(0, 2);
-                //string y = times.Substring(3, 4);
-                int d = int.Parse(x);
-               // int t = int.Parse(y);
-                string days = dayConversion(d);
+                
+                //string x = times.Substring(0, 2);
+                //string y = times.Substring(2, 2);
+                //Console.WriteLine(x);
+                //Console.WriteLine(y);
+                //int d = int.Parse(x);
+                //int t = int.Parse(y);
+                //string days = dayConversion(d);
+                //string timee = timeConversion(t);
 
 
 
-                string numTimes = s[loc + 3]; //Timeblocks
-                Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), days, times);
+                ////string numTimes = s[loc + 3]; //Timeblocks
 
-                classes.Add(c);
+                //Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), days, timee);
+
+                //classes.Add(c);
             }
         }
 
@@ -142,34 +170,30 @@ namespace CDD
             return Reverse(days);
         }
 
-        //public float timeConversion(int time)
-        //{
-        //    string ntime;
+        public string timeConversion(int time)
+        {
+            time = time / 2;
+            string ntime = "";
 
-        //    if (time >= 12)
-        //    {
+            if (time < 12)
+            {
+                ntime = time.ToString() + "AM";
+            }
 
-        //        if (time == 12)
-        //        {
-        //            ntime = time + " AM" ;
-        //        }
-        //        else
-        //        {
-        //            time = time - 12;
-        //        }
-        //        ntime = time + " PM";
-        //    }
-
-        //    else
-        //    {
-        //        ntime = time;
-        //        Console.Out.WriteLine("AM");
-        //    }
-
-
-
-        //    return ntime;
-        //}
+            if (time == 12)
+            {
+                ntime = time.ToString() + "PM";
+            }
+            if(time > 12)
+            {
+                time = time - 12;
+                ntime = time.ToString() + "PM";
+            }
+                
+           
+            
+            return ntime;
+        }
 
         public void lengthConvo(int len)
         {
@@ -191,10 +215,11 @@ namespace CDD
             }
         }
 
-        public void Calculation(){
-        
-            
-            
+        public void Calculation()
+        {
+
+
+
         }
 
 
