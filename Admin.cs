@@ -14,6 +14,10 @@ namespace CDD
             this.status = "admin";
 
         }
+        public override void addClass(Class c)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

@@ -14,6 +14,9 @@ namespace CDD
             this.status = "faculty";
 
         }
-
+        public override void addClass(Class c)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

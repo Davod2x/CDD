@@ -10,14 +10,15 @@ namespace CDD
     internal class RS
     {
         public UserDB userDB;
-        protected ClassDB classDB;
+        public ClassDB classDB;
         protected TransactionDB transactionDB;
      
 
         public RS()
         { 
             this.userDB = new UserDB("UserDB.txt");
-            this.classDB = new ClassDB("ClassDB.txt", userDB);
+            this.classDB = new ClassDB("ClassDB.txt", this.userDB);
+           // this.CourseHistory = newCourseHistory("CourseHistory.txt")
         }
        
     }

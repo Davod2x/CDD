@@ -14,32 +14,43 @@ namespace CDD
         public string Section { get; private set; }
         public string Prof { get; private set; }
         public string Credits { get; private set; }
-        public int Seats { get; private set; }
-        public int SeatsAvail { get; private set; }
+        public string Seats { get; private set; }
+        public string SeatsAvail { get; private set; }
         public string TimeBlocks { get; private set; }
         public string Days { get; private set; }
-        public string Time { get; private set; }
-        public int TimeLen { get; private set; }
+        public string EndTime { get; private set; }
+        public string StartTime { get; private set; }
 
-        public Class(string dpt, string name,  string prof, string credits, int seats, string timeBlocks, string days)
+        public string Course { get; private set; }
+
+        public string FormattedTime { get; private set; }
+
+
+
+        public Class(string dpt, string classNum, string section, string name,  string prof, string credits, string seats, string startTime, string endTime, string days)
         {
             this.Dpt = dpt;
             this.Name = name;
-            this.ClassNum = "";
-            this.Section = "";
+            this.ClassNum = classNum;
+            this.Section = section;
             this.Prof = prof;
             this.Credits = credits;
             this.Seats = seats;
             this.SeatsAvail = seats;
-            this.TimeBlocks = timeBlocks;
+            this.StartTime = startTime;
             this.Days = days;
-            this.Time = "";
-            this.TimeLen = 0;
+            this.EndTime = endTime;
+            
+            Course = Dpt + "-"+ classNum+ "-"+ section;
+            FormattedTime = StartTime+ "-" + EndTime;
         }
+
+        //(string name,
+
 
         public override string ToString()
         {
-            return this.Dpt + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.TimeBlocks + " " + this.Days;
+            return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.Days + " " + this.FormattedTime ;
         }
     }
 

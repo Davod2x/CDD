@@ -39,6 +39,11 @@ namespace CDD
                 string realCourseName = "";
                 bool inUsers = false;
                 string last = "";
+                // splitting first index
+                char[] dash = new char[] { '-' };
+                string[] classInfo = new string[] { };
+                classInfo= s[0].Split(dash);
+                
                 //while (loc < s.Count && !inUsers)
                 //{
                 foreach (User user in userDB.users)
@@ -81,12 +86,12 @@ namespace CDD
                     string endtime = timeConversion(a);
                     string formattedTime = timee + "-" + endtime;
 
-
+                    
 
 
                     //string numTimes = s[loc + 3]; //Timeblocks
 
-                    Class c = new Class(s[0], realCourseName, s[realLoc], s[realLoc + 1], int.Parse(s[realLoc + 2]), days, formattedTime);
+                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], realCourseName, s[realLoc], s[realLoc + 1], s[realLoc + 2], timee, endtime, days);
 
                     classes.Add(c);
                     place++;
@@ -109,6 +114,7 @@ namespace CDD
 
                 //classes.Add(c);
             }
+
         }
 
 

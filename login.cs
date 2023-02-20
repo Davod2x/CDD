@@ -14,7 +14,7 @@ namespace CDD
     
     public partial class login : Form
     {
-        string username;
+        public static string Username { get; set; }
         string password;
         RS rs = new RS();
         User user;
@@ -31,13 +31,13 @@ namespace CDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (rs.userDB.validCredentials(username, password))
+            if (rs.userDB.validCredentials(Username, password))
             {
-                user = rs.userDB.GetUser(username);
+                user = rs.userDB.GetUser(Username);
                 if (user.getStatus() == "faculty")
                 {
                     FacultyWindow window = new FacultyWindow();
-                    window.Show();
+                    panel1.Visible = false;
                 }
                 else if (user.getStatus() == "admin")
                 {
@@ -46,8 +46,11 @@ namespace CDD
                 }
                 else
                 {
-                    StudentWindow window = new StudentWindow();
-                    window.Show();
+                    label3.Text = "Welcome " + user.getfName();
+                    label3.Visible = true;
+                    panel1.Visible=false;
+                    menuStrip1.Visible = true;
+                    
                 }
             }
             else
@@ -64,7 +67,7 @@ namespace CDD
         }
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
-            username= textBox2.Text;
+            Username= textBox2.Text;
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -73,6 +76,43 @@ namespace CDD
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void viewCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+            string[] row;
+            char[] ch = new char[] { ' ' };
+            foreach (Class c in rs.classDB.classes)
+            {
+                row = c.ToString().Split(ch);
+
+
+                dataGridView1.Rows.Add(row);
+            }
+            dataGridView1.Visible = true;
+            button2.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

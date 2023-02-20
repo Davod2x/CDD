@@ -14,7 +14,7 @@ namespace CDD
         protected string status;
         protected string username;
         protected string password;
-        protected string[] classes;
+        
 
 
         public User(string fname, string lname, string mname, string username,
@@ -26,6 +26,7 @@ namespace CDD
             this.status = "";
             this.username = username;
             this.password = password;
+            
 
         }
 
@@ -102,6 +103,6 @@ namespace CDD
             return this.getfName() + this.getmName() + this.getlName() + this.getUsername() + this.getPassword();
         }
 
-        // public abstract void Prompt();  // children classes decide functionality
+        public abstract void addClass(Class c);  // children classes decide functionality
     }
 }
