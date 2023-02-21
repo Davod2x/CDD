@@ -18,6 +18,7 @@ namespace CDD
         string password;
         RS rs = new RS();
         User user;
+        int rowIndex;
         public login()
         {
             InitializeComponent();
@@ -82,13 +83,14 @@ namespace CDD
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            rowIndex = e.RowIndex;
+            
         }
 
         private void viewCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-
+            
             string[] row;
             char[] ch = new char[] { ' ' };
             foreach (Class c in rs.classDB.classes)
@@ -104,6 +106,12 @@ namespace CDD
 
         private void button2_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you would like to add this course", "Add Course", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                user.addClass(rs.classDB.classes[rowIndex]);
+              
+            }
 
         }
 
@@ -113,6 +121,27 @@ namespace CDD
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewSceduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] row;
+            char[] ch = new char[] { ' ' };
+            button2.Visible = false;
+            dataGridView1.Visible = false;
+            foreach(Class c in user.classes)
+            {
+                row = c.ToString().Split(ch);
+
+
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Visible = true;
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
