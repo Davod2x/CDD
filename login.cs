@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -47,6 +48,7 @@ namespace CDD
                 }
                 else
                 {
+                    pictureBox1.Visible= false;
                     label3.Text = "Welcome " + user.getfName();
                     label3.Visible = true;
                     panel1.Visible=false;
@@ -89,16 +91,18 @@ namespace CDD
 
         private void viewCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            
+
             string[] row;
             char[] ch = new char[] { ' ' };
-            foreach (Class c in rs.classDB.classes)
+            if (dataGridView1.Rows.Count < rs.classDB.classes.Count)
             {
-                row = c.ToString().Split(ch);
+                foreach (Class c in rs.classDB.classes)
+                {
+                    row = c.ToString().Split(ch);
 
 
-                dataGridView1.Rows.Add(row);
+                    dataGridView1.Rows.Add(row);
+                }
             }
             dataGridView1.Visible = true;
             button2.Visible = true;
@@ -109,7 +113,14 @@ namespace CDD
             DialogResult dialogResult = MessageBox.Show("Are you sure you would like to add this course", "Add Course", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                user.addClass(rs.classDB.classes[rowIndex]);
+                try
+                {
+                    user.addClass(rs.classDB.classes[rowIndex]);
+                }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show("Could not add course: already taking or time conflict");
+                }
               
             }
 
@@ -129,21 +140,48 @@ namespace CDD
         {
             string[] row;
             char[] ch = new char[] { ' ' };
-            button2.Visible = false;
             dataGridView1.Visible = false;
-            foreach(Class c in user.classes)
-            {
-                row = c.ToString().Split(ch);
+            button2.Visible = false;
+            dataGridView2.Rows.Clear();
+       
+                foreach (Class c in user.classes)
+                {
+                    row = c.ToString().Split(ch);
 
 
-                dataGridView2.Rows.Add(row);
-            }
+                    dataGridView2.Rows.Add(row);
+                }
+            
+           
             dataGridView2.Visible = true;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+        }
+
+        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Visible = false;
+            menuStrip1.Visible = false;
+            dataGridView2.Visible=false;
+            panel1.Visible = true;
+            pictureBox1.Visible = true;
+            label3.Visible = false;
+            textBox1.Clear();
+            textBox2.Clear();
+            rs.userDB.users[rs.userDB.users.IndexOf(rs.userDB.GetUser(user.getUsername()))] = user;
         }
     }
 }

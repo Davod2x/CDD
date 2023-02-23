@@ -105,5 +105,7 @@ namespace CDD
         }
 
         public abstract void addClass(Class c);  // children classes decide functionality
+
+        public abstract void removeClass(Class c);
     }
 }

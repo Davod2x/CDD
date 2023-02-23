@@ -47,6 +47,9 @@ namespace CDD
                 }
                 users.Add(user);
             }
+
+            // iterate through history file
+
         }
         public bool validCredentials(string username, string password)
         {

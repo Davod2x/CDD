@@ -8,6 +8,14 @@ namespace CDD
 {
     internal class Class
     {
+        public string user { get; private set; }
+        public int numclasses { get; set; }
+        public string coursename { get; private set; }
+        public string term { get; private set; }
+        public string grade { get; private set; }
+        public string classes { get; private set; }
+
+
         public string Name { get; private set; }
         public string Dpt { get; private set; }
         public string ClassNum { get; private set; }
@@ -15,7 +23,7 @@ namespace CDD
         public string Prof { get; private set; }
         public string Credits { get; private set; }
         public string Seats { get; private set; }
-        public string SeatsAvail { get; private set; }
+        public int SeatsAvail { get; set; }
         public string TimeBlocks { get; private set; }
         public string Days { get; private set; }
         public string EndTime { get; private set; }
@@ -36,7 +44,7 @@ namespace CDD
             this.Prof = prof;
             this.Credits = credits;
             this.Seats = seats;
-            this.SeatsAvail = seats;
+            this.SeatsAvail = int.Parse(seats);
             this.StartTime = startTime;
             this.Days = days;
             this.EndTime = endTime;
@@ -44,10 +52,26 @@ namespace CDD
             Course = Dpt + "-"+ classNum+ "-"+ section;
             FormattedTime = StartTime+ "-" + EndTime;
         }
+        
+        public Class(string user, string classes, string coursename,string term, string credits, string grade)
+        {
+            this.user = user;
+            this.classes = classes;
+            this.numclasses = int.Parse(classes);
+            this .coursename = coursename;
+            this.term = term;
+            this.Credits = credits;
+            this.grade = grade;
+
+        }
 
         //(string name,
 
-
+        public static bool operator ==(Class c1, Class c2)
+        {
+            return c1.Course == c2.Course;
+        }
+        public static bool operator !=(Class c1, Class c2) { return !(c1 == c2); }
         public override string ToString()
         {
             return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.Days + " " + this.FormattedTime ;

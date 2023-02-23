@@ -18,6 +18,7 @@ namespace CDD
         {
             throw new NotImplementedException();
         }
+        public override void removeClass(Class c) { throw new NotImplementedException(); }
 
     }
 }
