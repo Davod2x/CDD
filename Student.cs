@@ -89,5 +89,11 @@ namespace CDD
             return conflict;
         }
     }
+
+    /////////////////////////
+    public void addClassHistory(Class c)
+    {
+        classHistory.Add(c);
+    }
 }
 

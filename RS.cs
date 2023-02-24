@@ -16,7 +16,7 @@ namespace CDD
 
         public RS()
         { 
-            this.userDB = new UserDB("UserDB.txt");
+            this.userDB = new UserDB("UserDB.txt", "CourseHistory.txt");
             this.classDB = new ClassDB("ClassDB.txt", this.userDB);
            // this.CourseHistory = newCourseHistory("CourseHistory.txt")
         }
