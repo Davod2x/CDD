@@ -31,7 +31,7 @@ namespace CDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserDB udb = new UserDB("UserDB.txt");
+            UserDB udb = new UserDB("UserDB.txt", "CourseHistory.txt");
             ClassDB cdb = new ClassDB("ClassDB.txt", udb);
             
             string[] row;
@@ -77,7 +77,7 @@ namespace CDD
 
         private void viewCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UserDB udb = new UserDB("UserDB.txt");
+            UserDB udb = new UserDB("UserDB.txt","CourseHistory.txt");
             ClassDB cdb = new ClassDB("ClassDB.txt", udb);
 
             string[] row;

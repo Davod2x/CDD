@@ -60,12 +60,19 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Term = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointsEarned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -162,10 +169,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewCoursesToolStripMenuItem,
             this.viewSceduleToolStripMenuItem,
-            this.viewCourseHistoryToolStripMenuItem});
+            this.viewCourseHistoryToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2758, 47);
+            this.menuStrip1.Size = new System.Drawing.Size(3599, 47);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -189,6 +197,7 @@
             this.viewCourseHistoryToolStripMenuItem.Name = "viewCourseHistoryToolStripMenuItem";
             this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 43);
             this.viewCourseHistoryToolStripMenuItem.Text = "View Course History";
+            this.viewCourseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewCourseHistoryToolStripMenuItem_Click);
             // 
             // label3
             // 
@@ -238,7 +247,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView2.Location = new System.Drawing.Point(15, 213);
+            this.dataGridView2.Location = new System.Drawing.Point(15, 210);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 92;
@@ -333,7 +342,7 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 187);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 213);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 92;
@@ -413,15 +422,81 @@
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Width = 120;
             // 
-            // button4
+            // logoutToolStripMenuItem
             // 
-            this.button4.Location = new System.Drawing.Point(1290, 91);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(175, 46);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Logout";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 43);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn15,
+            this.Term,
+            this.dataGridViewTextBoxColumn18,
+            this.Grade,
+            this.PointsEarned});
+            this.dataGridView3.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridView3.Location = new System.Drawing.Point(12, 213);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersWidth = 92;
+            this.dataGridView3.RowTemplate.Height = 37;
+            this.dataGridView3.Size = new System.Drawing.Size(938, 320);
+            this.dataGridView3.TabIndex = 16;
+            this.dataGridView3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn15.DividerWidth = 2;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Class";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 11;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 124;
+            // 
+            // Term
+            // 
+            this.Term.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Term.HeaderText = "Term";
+            this.Term.MinimumWidth = 11;
+            this.Term.Name = "Term";
+            this.Term.ReadOnly = true;
+            this.Term.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn18.DividerWidth = 2;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Credits";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 11;
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 141;
+            // 
+            // Grade
+            // 
+            this.Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Grade.HeaderText = "Grade";
+            this.Grade.MinimumWidth = 11;
+            this.Grade.Name = "Grade";
+            this.Grade.ReadOnly = true;
+            this.Grade.Width = 129;
+            // 
+            // PointsEarned
+            // 
+            this.PointsEarned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PointsEarned.HeaderText = " Grade Points";
+            this.PointsEarned.MinimumWidth = 11;
+            this.PointsEarned.Name = "PointsEarned";
+            this.PointsEarned.ReadOnly = true;
+            this.PointsEarned.Width = 208;
             // 
             // login
             // 
@@ -430,7 +505,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(3599, 1366);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button3);
@@ -449,6 +524,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,6 +563,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Term;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PointsEarned;
     }
 }

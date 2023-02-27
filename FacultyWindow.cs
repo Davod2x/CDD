@@ -19,7 +19,7 @@ namespace CDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserDB udb = new UserDB("UserDB.txt");
+            UserDB udb = new UserDB("UserDB.txt",  "CourseHistory.txt");
             ClassDB cdb = new ClassDB("ClassDB.txt", udb);
             List<string> r = new List<string>();
             string[] row;

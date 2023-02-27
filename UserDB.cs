@@ -48,9 +48,11 @@ namespace CDD
                 users.Add(user);
             }
 
+
             // iterate through history file
             this.lines = File.ReadAllLines(fhistory);
-            List<string> s = new List<string>();  //don't think it's neeeded
+            s.RemoveAll(x => x.Length>0);  //don't think it's neeeded
+
 
             foreach (string line in lines)
             {
@@ -69,7 +71,8 @@ namespace CDD
                 string term;
                 string credit;
                 string grade;
-                Student student;
+                double gpaye;
+                Student student = null;
 
                 int i = 0;
                 int place = 2;
@@ -83,24 +86,25 @@ namespace CDD
                     place++;
                     grade = s[place];
                     place++;
-                    foreach (User user in userDB.users)
+                    foreach (User user in users)
                     {
                         if (user.getUsername() == username)
                         {
-                            student = user;
+                            student = (Student)user;
                         }
                     }
                     // splitting second index
                     char[] dash = new char[] { '-' };
                     string[] classInfo = new string[] { };
                     classInfo = course.Split(dash);
-
-                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], term, credits, grade);
+                    gpaye = GpaCalculator(credit,grade);
+                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], term, credit, grade,gpaye);
                     student.addClassHistory(c);
                     i++;
                 }
-             
-            ////////////////////////////////////////////////////////////////
+
+                ////////////////////////////////////////////////////////////////
+            }
         }
         public bool validCredentials(string username, string password)
         {
@@ -143,6 +147,67 @@ namespace CDD
             }
         }
 
+        public double GpaCalculator(string credits, string grade)
+        {
+
+            double GPA = 0.0;
+            double creed = double.Parse(credits);
+            
+            if (grade.Equals("A"))
+            {
+                GPA = 4.0*creed;
+            }
+            if (grade.Equals("A-"))
+            {
+                GPA = 3.7 * creed;
+            }
+            if (grade.Equals("B+"))
+            {
+                GPA = 3.3 * creed;
+            }
+            if (grade.Equals("B"))
+            {
+                GPA = 3.0 * creed;
+            }
+            if (grade.Equals("B-"))
+            {
+                GPA = 2.7 * creed;
+            }
+            if (grade.Equals("C+"))
+            {
+                GPA = 2.3 * creed;
+            }
+            if (grade.Equals("C"))
+            {
+                GPA = 2.0 * creed;
+            }
+            if (grade.Equals("C-"))
+            {
+                GPA = 1.7 * creed;
+            }
+            if (grade.Equals("D+"))
+            {
+                GPA = 1.3 * creed;
+            }
+            if (grade.Equals("D"))
+            {
+                GPA = 1.0 * creed;
+            }
+            if (grade.Equals("D-"))
+            {
+                GPA = 0.7 * creed;
+            }
+            if (grade.Equals("F"))
+            {
+                GPA = 0.0;
+            }
+            if (grade.Equals("WF"))
+            {
+                GPA = 0.0;
+            }
+
+            return GPA;
+        }
 
     }
 }

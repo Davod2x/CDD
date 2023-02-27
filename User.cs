@@ -14,8 +14,8 @@ namespace CDD
         protected string status;
         protected string username;
         protected string password;
-        public List<Class> classes;
-        public List<Class> classHistory;
+        public List<Class> classes { get; set; }
+        public List<Class> classHistory{get;set;}
 
 
 

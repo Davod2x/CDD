@@ -26,6 +26,7 @@ namespace CDD
         public string Days { get; private set; }
         public string EndTime { get; private set; }
         public string StartTime { get; private set; }
+        public double Gpa { get; private set; }
 
         public string Course { get; private set; }
 
@@ -53,7 +54,7 @@ namespace CDD
             this.term = null;
             this.grade = null;
         }
-        public Class(string dpt, string classNum, string section, string term, string credits, string grade)
+        public Class(string dpt, string classNum, string section, string term, string credits, string grade, double gpa)
         {
             this.Dpt = dpt;
             this.Name = null;
@@ -62,13 +63,14 @@ namespace CDD
             this.Prof = null;
             this.Credits = credits;
             this.Seats = null;
-            this.SeatsAvail = null;
+            this.SeatsAvail = 0;
             this.Days = null;
             this.EndTime = null;
             Course = Dpt + "-" + classNum + "-" + section;
             FormattedTime = null;
             this.term = term;
             this.grade = grade;
+            this.Gpa = gpa;
         }
 
         //public Class(string user, string classes, string coursename,string term, string credits, string grade)
@@ -92,7 +94,14 @@ namespace CDD
         public static bool operator !=(Class c1, Class c2) { return !(c1 == c2); }
         public override string ToString()
         {
-            return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.Days + " " + this.FormattedTime ;
+            if (grade == null)
+            {
+                return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.Days + " " + this.FormattedTime;
+            }
+            else
+            {
+                return this.Course + " " + this.term + " " + this.Credits + " " + this.grade + " " + this.Gpa;
+            }
         }
     }
 

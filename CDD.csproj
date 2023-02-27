@@ -53,7 +53,6 @@
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Class.cs" />
-    <Compile Include="CourseHistory.cs" />
     <Compile Include="Faculty.cs" />
     <Compile Include="Admin.cs" />
     <Compile Include="Student.cs" />

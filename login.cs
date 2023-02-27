@@ -104,6 +104,8 @@ namespace CDD
                     dataGridView1.Rows.Add(row);
                 }
             }
+            dataGridView2.Visible= false;
+            button3.Visible=false;
             dataGridView1.Visible = true;
             button2.Visible = true;
         }
@@ -142,6 +144,7 @@ namespace CDD
             char[] ch = new char[] { ' ' };
             dataGridView1.Visible = false;
             button2.Visible = false;
+            dataGridView3.Visible = false;
             dataGridView2.Rows.Clear();
        
                 foreach (Class c in user.classes)
@@ -172,11 +175,21 @@ namespace CDD
             rowIndex= e.RowIndex;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+      
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows[rowIndex].Visible = false;
+            user.removeClass(user.classes[rowIndex]);
+
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = false;
             menuStrip1.Visible = false;
-            dataGridView2.Visible=false;
+            dataGridView2.Visible = false;
+            dataGridView3.Visible = false;
             panel1.Visible = true;
             pictureBox1.Visible = true;
             label3.Visible = false;
@@ -185,11 +198,22 @@ namespace CDD
             rs.userDB.users[rs.userDB.users.IndexOf(rs.userDB.GetUser(user.getUsername()))] = user;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void viewCourseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView2.Rows[rowIndex].Visible = false;
-            user.removeClass(rs.classDB.classes[rowIndex]);
-
+            string[] row;
+            if (dataGridView3.Rows.Count < user.classHistory.Count)
+            {
+                foreach (Class c in user.classHistory)
+                {
+                    row = c.ToString().Split(new char[] {' '});
+                    dataGridView3.Rows.Add(row);
+                }
+            }
+            dataGridView2.Visible = false;
+            button3.Visible = false;
+            dataGridView1.Visible = false;
+            button2.Visible = false;
+            dataGridView3.Visible = true;
         }
     }
 }

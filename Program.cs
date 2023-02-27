@@ -17,12 +17,18 @@ namespace CDD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
-            //UserDB udb = new UserDB("UserDB.txt");
+            //UserDB udb = new UserDB("UserDB.txt", "CourseHistory.txt");
             //ClassDB db = new ClassDB("ClassDB.txt", udb);
-            //User user = udb.GetUser("JBiden");
-            //user.addClass(db.classes[0]);
-            //user.addClass(db.classes[1]);
-            //user.addClass(db.classes[2]);
+            //foreach (User u in udb.users)
+            //{
+            //    if (u.getStatus() != "faculty" && u.getStatus() != "admin")
+            //    {
+            //        Student student = (Student)u;
+            //        System.Console.WriteLine(student.getfName());
+            //        student.printClassHistory();
+            //    }
+            //}
+
 
 
         }

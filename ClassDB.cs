@@ -75,8 +75,6 @@ namespace CDD
                     string x = times.Substring(0, 2);
                     string y = times.Substring(2, 2);
                     string z = times.Substring(times.Length -1, 1);
-                    Console.WriteLine(x);
-                    Console.WriteLine(y);
                     int d = int.Parse(x);
                     int t = int.Parse(y);
                     int m = int.Parse(z);
