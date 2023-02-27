@@ -154,11 +154,12 @@ namespace CDD
             
            
             dataGridView2.Visible = true;
+            button3.Visible= true;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            rowIndex= e.RowIndex;
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -168,7 +169,7 @@ namespace CDD
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            rowIndex= e.RowIndex;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -182,6 +183,13 @@ namespace CDD
             textBox1.Clear();
             textBox2.Clear();
             rs.userDB.users[rs.userDB.users.IndexOf(rs.userDB.GetUser(user.getUsername()))] = user;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows[rowIndex].Visible = false;
+            user.removeClass(rs.classDB.classes[rowIndex]);
+
         }
     }
 }

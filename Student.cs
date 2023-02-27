@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CDD
 {
     internal class Student : User
     {
-        List<Class> classHistory;
+        
         int currentClassesNum;
         float gpaEarned;
         int totalClassesTaken;
@@ -21,7 +22,7 @@ namespace CDD
             this.totalClassesTaken = 0; 
             this.status = "student";
             this.classes = new List<Class>();
-            this.classHistory = new List<Class>();
+            this.classHistory = new List<string[]>();
         }
 
         public override void addClass(Class c)
@@ -58,6 +59,7 @@ namespace CDD
             
 
         }
+        
 
 
         public override void removeClass(Class c)
