@@ -35,11 +35,11 @@ namespace CDD
             }
 
             int realLoc = 1;              int place = realLoc + 4;
-            //while (place < s.Count)
-            //{
-            //    Class c = new Class(s[0], s[1], s[2], s[3], s[4], s[5]);
-            //    classes.Add(c);
-            //}
+            while (place < s.Count)
+            {
+                Class c = new Class(s[0], s[1], s[2], s[3], s[4], s[5]);
+                classes.Add(c);
+            }
         }
     }
     

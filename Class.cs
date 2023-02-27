@@ -8,14 +8,12 @@ namespace CDD
 {
     internal class Class
     {
-        public string user { get; private set; }
-        public int numclasses { get; set; }
-        public string coursename { get; private set; }
+        //public string user { get; private set; }
+        //public int numclasses { get; set; }
+        //public string coursename { get; private set; }
         public string term { get; private set; }
         public string grade { get; private set; }
-        public string classes { get; private set; }
-
-
+        //public string classes { get; private set; }
         public string Name { get; private set; }
         public string Dpt { get; private set; }
         public string ClassNum { get; private set; }
@@ -51,19 +49,39 @@ namespace CDD
             
             Course = Dpt + "-"+ classNum+ "-"+ section;
             FormattedTime = StartTime+ "-" + EndTime;
-        }
-        
-        public Class(string user, string classes, string coursename,string term, string credits, string grade)
-        {
-            this.user = user;
-            this.classes = classes;
-            this.numclasses = int.Parse(classes);
-            this .coursename = coursename;
-            this.term = term;
-            this.Credits = credits;
-            this.grade = grade;
 
+            this.term = null;
+            this.grade = null;
         }
+        public Class(string dpt, string classNum, string section, string term, string credits, string grade)
+        {
+            this.Dpt = dpt;
+            this.Name = null;
+            this.ClassNum = classNum;
+            this.Section = section;
+            this.Prof = null;
+            this.Credits = credits;
+            this.Seats = null;
+            this.SeatsAvail = null;
+            this.Days = null;
+            this.EndTime = null;
+            Course = Dpt + "-" + classNum + "-" + section;
+            FormattedTime = null;
+            this.term = term;
+            this.grade = grade;
+        }
+
+        //public Class(string user, string classes, string coursename,string term, string credits, string grade)
+        //{
+        //    this.user = user;
+        //    this.classes = classes;
+        //    this.numclasses = int.Parse(classes);
+        //    this .coursename = coursename;
+        //    this.term = term;
+        //    this.Credits = credits;
+        //    this.grade = grade;
+
+        //}
 
         //(string name,
 

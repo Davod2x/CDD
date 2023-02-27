@@ -16,7 +16,7 @@ namespace CDD
         private string[] strings;
 
 
-        public UserDB(string fname)
+        public UserDB(string fname, string fhistory)
         {
             this.lines = File.ReadAllLines(fname);
             this.users = new List<User>();
@@ -47,10 +47,60 @@ namespace CDD
                 }
                 users.Add(user);
             }
-            
 
-            // iterae through history file
+            // iterate through history file
+            this.lines = File.ReadAllLines(fhistory);
+            List<string> s = new List<string>();  //don't think it's neeeded
 
+            foreach (string line in lines)
+            {
+                s.RemoveAll(x => x.Length > 0);
+                this.strings = line.Split(this.whitespace);
+                foreach (string str in strings)
+                {
+                    if (str.Length > 0)
+                        s.Add(str);
+                }
+
+                string username = s[0];
+                int numCourses = int.Parse(s[1]);
+
+                string course;
+                string term;
+                string credit;
+                string grade;
+                Student student;
+
+                int i = 0;
+                int place = 2;
+                while (i < numCourses)
+                {
+                    course = s[place];
+                    place++;
+                    term = s[place];
+                    place++;
+                    credit = s[place];
+                    place++;
+                    grade = s[place];
+                    place++;
+                    foreach (User user in userDB.users)
+                    {
+                        if (user.getUsername() == username)
+                        {
+                            student = user;
+                        }
+                    }
+                    // splitting second index
+                    char[] dash = new char[] { '-' };
+                    string[] classInfo = new string[] { };
+                    classInfo = course.Split(dash);
+
+                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], term, credits, grade);
+                    student.addClassHistory(c);
+                    i++;
+                }
+             
+            ////////////////////////////////////////////////////////////////
         }
         public bool validCredentials(string username, string password)
         {
