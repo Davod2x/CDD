@@ -11,7 +11,7 @@ namespace CDD
     {
 
         int currentClassesNum;
-        double gpaEarned;
+        public double gpaEarned {get; private set;}
         int totalClassesTaken;
 
         public Student(string fname, string lname, string mname, string username, string password)
@@ -23,6 +23,7 @@ namespace CDD
             this.status = "student";
             this.classes = new List<Class>();
             this.classHistory = new List<Class>();
+            this.gpaEarned = 0;
         }
 
         public override void addClass(Class c)
@@ -115,56 +116,8 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade.Equals("A"))
-                {
-                    gpaEarned = gpaEarned+4.0;
-                }
-                if (c.grade.Equals("A-"))
-                {
-                    gpaEarned = gpaEarned+3.7;
-                }
-                if (c.grade.Equals("B+"))
-                {
-                    gpaEarned = gpaEarned + 3.3;
-                }
-                if (c.grade.Equals("B"))
-                {
-                    gpaEarned = gpaEarned + 3.0;
-                }
-                if (c.grade.Equals("B-"))
-                {
-                    gpaEarned = gpaEarned + 2.7;
-                }
-                if (c.grade.Equals("C+"))
-                {
-                    gpaEarned = gpaEarned + 2.3;
-                }
-                if (c.grade.Equals("C"))
-                {
-                    gpaEarned = gpaEarned + 2.0;
-                }
-                if (c.grade.Equals("C-"))
-                {
-                    gpaEarned = gpaEarned + 1.7;
-                }
-                if (c.grade.Equals("D+"))
-                {
-                    gpaEarned = gpaEarned + 1.3;
-                }
-                if (c.grade.Equals("D"))
-                {
-                    gpaEarned = gpaEarned + 1.0;
-                }
-                if (c.grade.Equals("D-"))
-                {
-                    gpaEarned = gpaEarned + 0.7;
-                }
-                // 
-                if (c.grade.Equals("F") || c.grade.Equals("WF"))
-                {
-                    gpaEarned = gpaEarned + 0.0;
-                }
-                totalCredits = totalCredits + double.Parse(c.Credits);
+                gpaEarned += c.Gpa;
+                totalCredits += double.Parse(c.Credits);
             }
             this.gpaEarned = gpaEarned / totalCredits;
        

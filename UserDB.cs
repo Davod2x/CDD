@@ -102,6 +102,7 @@ namespace CDD
                     student.addClassHistory(c);
                     i++;
                 }
+                student.calcGPA();
 
                 ////////////////////////////////////////////////////////////////
             }

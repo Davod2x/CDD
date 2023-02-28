@@ -48,6 +48,7 @@ namespace CDD
                 }
                 else
                 {
+                    user = (Student)user;
                     pictureBox1.Visible= false;
                     label3.Text = "Welcome " + user.getfName();
                     label3.Visible = true;
@@ -108,6 +109,7 @@ namespace CDD
             button3.Visible=false;
             dataGridView1.Visible = true;
             button2.Visible = true;
+            dataGridView3.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -200,20 +202,30 @@ namespace CDD
 
         private void viewCourseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Student student = (Student)user;
             string[] row;
             if (dataGridView3.Rows.Count < user.classHistory.Count)
             {
                 foreach (Class c in user.classHistory)
                 {
-                    row = c.ToString().Split(new char[] {' '});
+                    row = c.ToString().Split(new char[] { ' ' });
                     dataGridView3.Rows.Add(row);
                 }
             }
+            row =  new string[] {" ", " "," "," ", "Cumalative GPA"};
+            dataGridView3.Rows.Add(row );
+            row = new string[] { " ", " ", " ", " ", student.gpaEarned.ToString() };
+            dataGridView3.Rows.Add(row);
             dataGridView2.Visible = false;
             button3.Visible = false;
             dataGridView1.Visible = false;
             button2.Visible = false;
             dataGridView3.Visible = true;
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
