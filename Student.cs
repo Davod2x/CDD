@@ -9,7 +9,8 @@ namespace CDD
 {
     internal class Student : User
     {
-
+        int creditsEarned;
+        int creditsAttempted;
         int currentClassesNum;
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
@@ -50,19 +51,26 @@ namespace CDD
                     }
                 }
             }
-            if (!taking && !conflict && currentClassesNum <= 5) {
-                classes.Add(c);
-                currentClassesNum++;
-                c.SeatsAvail--;
-            }
-            else if (currentClassesNum > 5)
+            //if (!(c.SeatsAvail>0)) {
+            //    throw new InvalidOperationException();
+            //}
+            if (currentClassesNum > 5)
             {
                 throw new InvalidOperationException("Schedule Overload & Time Conflict");
             }
             else if (conflict || taking)
             {
-                throw new InvalidDataException("");
+                throw new InvalidOperationException();
             }
+            else
+            {
+                classes.Add(c);
+                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, "N", 0.0);
+                addClassHistory(cl);
+                currentClassesNum++;
+                c.SeatsAvail--;
+            }
+          
 
 
         }
@@ -72,6 +80,7 @@ namespace CDD
         public override void removeClass(Class c)
         {
             classes.Remove(c);
+            classHistory.Remove(c);
             currentClassesNum--;
             c.SeatsAvail++;
         }
@@ -101,7 +110,15 @@ namespace CDD
 
         public void addClassHistory(Class c)
         {
+            foreach(Class cl in classHistory)
+            {
+                if(cl == c)
+                {
+                    throw new InvalidOperationException("Course already taken");
+                }
+            }
             classHistory.Add(c);
+
         }
         public void printClassHistory() {
             foreach (Class c in this.classHistory)
@@ -116,8 +133,11 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                gpaEarned += c.Gpa;
-                totalCredits += double.Parse(c.Credits);
+                if (c.grade != "N")
+                {
+                    gpaEarned += c.Gpa;
+                    totalCredits += double.Parse(c.Credits);
+                }
             }
             this.gpaEarned = gpaEarned / totalCredits;
        

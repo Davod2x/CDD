@@ -95,8 +95,8 @@ namespace CDD
 
             string[] row;
             char[] ch = new char[] { ' ' };
-            if (dataGridView1.Rows.Count < rs.classDB.classes.Count)
-            {
+            dataGridView1.Rows.Clear();
+           
                 foreach (Class c in rs.classDB.classes)
                 {
                     row = c.ToString().Split(ch);
@@ -104,7 +104,7 @@ namespace CDD
 
                     dataGridView1.Rows.Add(row);
                 }
-            }
+       
             dataGridView2.Visible= false;
             button3.Visible=false;
             dataGridView1.Visible = true;
@@ -120,13 +120,33 @@ namespace CDD
                 try
                 {
                     user.addClass(rs.classDB.classes[rowIndex]);
-                }
+
+            }
                 catch (InvalidOperationException)
+            {
+                bool previous = false;
+                foreach (Class c in user.classHistory)
+                {
+                    if (rs.classDB.classes[rowIndex] == c)
+                    {
+                        previous = true; break;
+                    }
+                }
+                if (previous)
+                {
+                    dialogResult = MessageBox.Show("You have previously taken this course. Would you like to retake it?", "Add Course", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        user.addClass(rs.classDB.classes[rowIndex]);
+                    }
+                }
+                else
                 {
                     MessageBox.Show("Could not add course: already taking or time conflict");
                 }
-              
             }
+
+        }
 
         }
 
@@ -204,14 +224,14 @@ namespace CDD
         {
             Student student = (Student)user;
             string[] row;
-            if (dataGridView3.Rows.Count < user.classHistory.Count)
-            {
+            dataGridView3.Rows.Clear();
+            
                 foreach (Class c in user.classHistory)
                 {
                     row = c.ToString().Split(new char[] { ' ' });
                     dataGridView3.Rows.Add(row);
                 }
-            }
+            
             row =  new string[] {" ", " "," "," ", "Cumalative GPA"};
             dataGridView3.Rows.Add(row );
             row = new string[] { " ", " ", " ", " ", student.gpaEarned.ToString() };

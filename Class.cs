@@ -57,17 +57,10 @@ namespace CDD
         public Class(string dpt, string classNum, string section, string term, string credits, string grade, double gpa)
         {
             this.Dpt = dpt;
-            this.Name = null;
             this.ClassNum = classNum;
             this.Section = section;
-            this.Prof = null;
             this.Credits = credits;
-            this.Seats = null;
-            this.SeatsAvail = 0;
-            this.Days = null;
-            this.EndTime = null;
             Course = Dpt + "-" + classNum + "-" + section;
-            FormattedTime = null;
             this.term = term;
             this.grade = grade;
             this.Gpa = gpa;
