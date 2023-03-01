@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace CDD
 {
     internal class Student : User
     {
-        int creditsEarned;
-        int creditsAttempted;
+        double creditsEarned;
+        double creditsAttempted;
         int currentClassesNum;
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
@@ -25,9 +26,11 @@ namespace CDD
             this.classes = new List<Class>();
             this.classHistory = new List<Class>();
             this.gpaEarned = 0;
+            creditsEarned = 0;
+            creditsAttempted = 0;
         }
 
-        public override void addClass(Class c)
+        public override void addClass(Class c, bool doAnyway)
         {
             bool taking = false;
             bool conflict = false;
@@ -51,9 +54,14 @@ namespace CDD
                     }
                 }
             }
-            //if (!(c.SeatsAvail>0)) {
-            //    throw new InvalidOperationException();
-            //}
+            bool previous = false;
+            foreach (Class cl in this.classHistory)
+            {
+                if (cl == c)
+                {
+                    previous = true;
+                }
+            }
             if (currentClassesNum > 5)
             {
                 throw new InvalidOperationException("Schedule Overload & Time Conflict");
@@ -62,11 +70,21 @@ namespace CDD
             {
                 throw new InvalidOperationException();
             }
+            else if (previous && !doAnyway)
+            {
+                throw new InvalidOperationException() ;
+            }
             else
             {
-                classes.Add(c);
-                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, "N", 0.0);
+                string grade = "N";
+                if (previous)
+                {
+                    grade = "RN";
+                }
+                
+                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, grade, 0.0);
                 addClassHistory(cl);
+                classes.Add(c);
                 currentClassesNum++;
                 c.SeatsAvail--;
             }
@@ -79,8 +97,16 @@ namespace CDD
 
         public override void removeClass(Class c)
         {
+            Class cl = null;
             classes.Remove(c);
-            classHistory.Remove(c);
+            foreach(Class cl2 in this.classHistory)
+            {   
+                if(cl2 == c)
+                {
+                    cl = cl2;
+                }
+            }
+            classHistory.Remove(cl); 
             currentClassesNum--;
             c.SeatsAvail++;
         }
@@ -110,16 +136,11 @@ namespace CDD
 
         public void addClassHistory(Class c)
         {
-            foreach(Class cl in classHistory)
-            {
-                if(cl == c)
-                {
-                    throw new InvalidOperationException("Course already taken");
-                }
-            }
+
             classHistory.Add(c);
 
         }
+        
         public void printClassHistory() {
             foreach (Class c in this.classHistory)
             {
@@ -133,7 +154,7 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade != "N")
+                if (c.grade != "N" || c.grade !="S")
                 {
                     gpaEarned += c.Gpa;
                     totalCredits += double.Parse(c.Credits);
@@ -142,6 +163,34 @@ namespace CDD
             this.gpaEarned = gpaEarned / totalCredits;
        
             // access credits from class, update 
+        }
+
+        public void calcCredits()
+        {
+            double credits=0;
+            foreach (Class c in this.classHistory)
+            {
+                if (c.grade != "N")
+                {
+                    credits += double.Parse(c.Credits);
+                }
+            }
+            this.creditsEarned= credits;
+
+            // access credits from class, update 
+        }
+
+        public double totalCredits()
+        {
+            double totalCredits = 0.0;
+            foreach (Class c in this.classHistory)
+            {
+                if (c.grade != "N")
+                {
+                    totalCredits += double.Parse(c.Credits);
+                }
+            }
+            return totalCredits;
         }
     }
 

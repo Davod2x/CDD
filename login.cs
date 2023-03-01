@@ -119,36 +119,45 @@ namespace CDD
             {
                 try
                 {
-                    user.addClass(rs.classDB.classes[rowIndex]);
+                    user.addClass(rs.classDB.classes[rowIndex], false);
 
-            }
+
+                }
                 catch (InvalidOperationException)
-            {
-                bool previous = false;
-                foreach (Class c in user.classHistory)
                 {
-                    if (rs.classDB.classes[rowIndex] == c)
+                    bool previous = false;
+                    foreach (Class c in user.classHistory)
                     {
-                        previous = true; break;
+                        if (rs.classDB.classes[rowIndex] == c)
+                        {
+                            previous = true; break;
+                        }
                     }
-                }
-                if (previous)
-                {
-                    dialogResult = MessageBox.Show("You have previously taken this course. Would you like to retake it?", "Add Course", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    if (previous)
                     {
-                        user.addClass(rs.classDB.classes[rowIndex]);
+                        user.removeClass(rs.classDB.classes[rowIndex]);
+                        DialogResult dialogResult2 = MessageBox.Show("You have previously taken this course. Would you like to retake it?", "Add Course", MessageBoxButtons.YesNo);
+                        if (dialogResult2 == DialogResult.Yes)
+                        {
+                            user.addClass(rs.classDB.classes[rowIndex], true);
+                        }
+                        else
+                        {
+                            user.removeClass(rs.classDB.classes[rowIndex]);
+                        }
+
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Could not add course: already taking or time conflict");
+                    else
+                    {
+                        MessageBox.Show("Could not add course: already taking or time conflict");
+                    }
                 }
             }
-
         }
 
-        }
+        
+
+        
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
@@ -201,8 +210,12 @@ namespace CDD
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView2.Rows[rowIndex].Visible = false;
+            
+            
             user.removeClass(user.classes[rowIndex]);
+            dataGridView2.Rows.RemoveAt(rowIndex);
+           
+            
 
         }
 
@@ -232,9 +245,11 @@ namespace CDD
                     dataGridView3.Rows.Add(row);
                 }
             
-            row =  new string[] {" ", " "," "," ", "Cumalative GPA"};
+            row =  new string[] {" ", " "," ","Total Credits Earned", "Cumalative GPA"};
             dataGridView3.Rows.Add(row );
-            row = new string[] { " ", " ", " ", " ", student.gpaEarned.ToString() };
+            row = new string[] { " ", " ", " ", student.totalCredits().ToString(), student.gpaEarned.ToString() };
+            
+            
             dataGridView3.Rows.Add(row);
             dataGridView2.Visible = false;
             button3.Visible = false;

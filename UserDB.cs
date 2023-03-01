@@ -102,7 +102,8 @@ namespace CDD
                     student.addClassHistory(c);
                     i++;
                 }
-                student.calcGPA(); 
+                student.calcGPA();
+                student.calcCredits;
 
                 ////////////////////////////////////////////////////////////////
             }
@@ -203,6 +204,14 @@ namespace CDD
                 GPA = 0.0;
             }
             if (grade.Equals("WF"))
+            {
+                GPA = 0.0;
+            }
+            if (grade.Equals("U"))
+            {
+                GPA = 0.0;
+            }
+            if (grade.Equals("S"))
             {
                 GPA = 0.0;
             }

@@ -85,6 +85,10 @@ namespace CDD
             return c1.Course == c2.Course;
         }
         public static bool operator !=(Class c1, Class c2) { return !(c1 == c2); }
+        public bool Equals(Class c)
+        {
+            return this.Course == c.Course && this.grade == c.grade;
+        }
         public override string ToString()
         {
             if (grade == null)
