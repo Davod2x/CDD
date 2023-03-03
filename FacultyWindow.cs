@@ -12,19 +12,20 @@ namespace CDD
 {
     public partial class FacultyWindow : Form
     {
-        public FacultyWindow()
+        protected RS rs;
+        public FacultyWindow(RS rs)
         {
+            this.rs = rs;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserDB udb = new UserDB("UserDB.txt",  "CourseHistory.txt");
-            ClassDB cdb = new ClassDB("ClassDB.txt", udb);
+            
             List<string> r = new List<string>();
             string[] row;
             char[] ch = new char[] { ' ' };
-            foreach (Class c in cdb.classes)
+            foreach (Class c in rs.classDB.classes)
             {
                 row = c.ToString().Split(ch);
 

@@ -7,11 +7,11 @@ using System.IO;
 
 namespace CDD
 {
-    internal class RS
+    public class RS
     {
         public UserDB userDB;
         public ClassDB classDB;
-        protected TransactionDB transactionDB;
+        
      
 
         public RS()

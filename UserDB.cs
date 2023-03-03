@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CDD
 {
-    internal class UserDB
+    public class UserDB
     {
 
         public List<User> users;
@@ -103,7 +103,7 @@ namespace CDD
                     i++;
                 }
                 student.calcGPA();
-                student.calcCredits;
+                student.calcCredits();
 
                 ////////////////////////////////////////////////////////////////
             }

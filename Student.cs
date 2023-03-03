@@ -62,7 +62,7 @@ namespace CDD
                     previous = true;
                 }
             }
-            if (currentClassesNum > 5)
+            if (currentClassesNum >=5)
             {
                 throw new InvalidOperationException("Schedule Overload & Time Conflict");
             }
@@ -92,7 +92,11 @@ namespace CDD
 
 
         }
+        public void removeClassHistory(Class c)
+        {
 
+            classHistory.Remove(c);
+        }
 
 
         public override void removeClass(Class c)
@@ -101,12 +105,12 @@ namespace CDD
             classes.Remove(c);
             foreach(Class cl2 in this.classHistory)
             {   
-                if(cl2 == c)
+                if(cl2 == c && cl2.grade.Contains("N"))
                 {
                     cl = cl2;
                 }
             }
-            classHistory.Remove(cl); 
+            this.classHistory.Remove(cl); 
             currentClassesNum--;
             c.SeatsAvail++;
         }

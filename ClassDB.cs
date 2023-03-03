@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.IO;
 
 namespace CDD
 {
-    internal class ClassDB
+    public class ClassDB
     {
         public List<Class> classes;
         private char[] whitespace;
@@ -68,6 +69,7 @@ namespace CDD
                 }
                 //string times = "";
                 int place = realLoc + 4;
+                string prof = s[realLoc];
                 while (place < s.Count)
                 {
                     string times = "";
@@ -89,10 +91,11 @@ namespace CDD
 
                     //string numTimes = s[loc + 3]; //Timeblocks
 
-                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], realCourseName, s[realLoc], s[realLoc + 1], s[realLoc + 2], timee, endtime, days);
+                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], realCourseName, prof, s[realLoc + 1], s[realLoc + 2], timee, endtime, days);
 
                     classes.Add(c);
                     place++;
+                  
                 }
                 
                 //string x = times.Substring(0, 2);
