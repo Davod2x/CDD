@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CDD
 {
-    public class RS
+    internal class RS
     {
         public UserDB userDB;
         public ClassDB classDB;

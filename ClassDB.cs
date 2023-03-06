@@ -8,7 +8,7 @@ using System.IO;
 
 namespace CDD
 {
-    public class ClassDB
+    internal class ClassDB
     {
         public List<Class> classes;
         private char[] whitespace;
@@ -76,7 +76,7 @@ namespace CDD
                     times = s[place]; // make this .add to an array
                     string x = times.Substring(0, 2);
                     string y = times.Substring(2, 2);
-                    string z = times.Substring(times.Length -1, 1);
+                    string z = times.Substring(times.Length - 1, 1);
                     int d = int.Parse(x);
                     int t = int.Parse(y);
                     int m = int.Parse(z);
@@ -86,14 +86,21 @@ namespace CDD
                     string endtime = timeConversion(a);
                     string formattedTime = timee + "-" + endtime;
 
-                    
+
 
 
                     //string numTimes = s[loc + 3]; //Timeblocks
 
                     Class c = new Class(classInfo[0], classInfo[1], classInfo[2], realCourseName, prof, s[realLoc + 1], s[realLoc + 2], timee, endtime, days);
-
                     classes.Add(c);
+                    foreach (User u in userDB.users)
+                    {
+                        if (prof == u.getUsername())
+                        {
+                            u.addClass(c, false);
+                            Console.Out.WriteLine(c);
+                        }
+                    }
                     place++;
                   
                 }

@@ -14,20 +14,12 @@ namespace CDD
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
-            //UserDB udb = new UserDB("UserDB.txt", "CourseHistory.txt");
-            //ClassDB db = new ClassDB("ClassDB.txt", udb);
-            //foreach (User u in udb.users)
-            //{
-            //    if (u.getStatus() != "faculty" && u.getStatus() != "admin")
-            //    {
-            //        Student student = (Student)u;
-            //        System.Console.WriteLine(student.getfName());
-            //        student.printClassHistory();
-            //    }
-            //}
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new login());
+            UserDB udb = new UserDB("UserDB.txt", "CourseHistory.txt");
+            ClassDB db = new ClassDB("ClassDB.txt", udb);
+            
 
 
 

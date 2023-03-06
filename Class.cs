@@ -65,7 +65,7 @@ namespace CDD
             this.grade = grade;
             this.Gpa = gpa;
         }
-
+       
         //public Class(string user, string classes, string coursename,string term, string credits, string grade)
         //{
         //    this.user = user;

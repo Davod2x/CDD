@@ -16,7 +16,7 @@ namespace CDD
         }
         public override void addClass(Class c, bool doAnyway)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("balls");
         }
         public override void removeClass(Class c) { throw new NotImplementedException(); }  
     }

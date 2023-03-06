@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace CDD
 {
-    public partial class FacultyWindow : Form
+    internal partial class FacultyWindow : Form
     {
         protected RS rs;
-        public FacultyWindow(RS rs)
+        public FacultyWindow(ref RS rs)
         {
             this.rs = rs;
             InitializeComponent();
@@ -38,6 +38,11 @@ namespace CDD
    
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
 
         }

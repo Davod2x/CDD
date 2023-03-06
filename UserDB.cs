@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CDD
 {
-    public class UserDB
+    internal class UserDB
     {
 
         public List<User> users;
