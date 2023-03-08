@@ -105,7 +105,8 @@ namespace CDD
             return this.getfName() + this.getmName() + this.getlName() + this.getUsername() + this.getPassword();
         }
 
-        public abstract void addClass(Class c, bool doAnyway);  // children classes decide functionality
+        public abstract void addClass(Class c);// children classes decide functionality
+        public abstract void addClass(ref Class c, bool doAnyway);
 
         public abstract void removeClass(Class c);
     }

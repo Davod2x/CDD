@@ -15,14 +15,16 @@ namespace CDD
         int currentClassesNum;
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
+        public string Advisor { get; private set;}
 
-        public Student(string fname, string lname, string mname, string username, string password)
+        public Student(string fname, string lname, string mname, string username, string password, string advisor)
             : base(fname, lname, mname, username, password)
         {
             this.currentClassesNum = 0; // still need to increment in the add function, as well as take away an available seat in the class
             this.gpaEarned = 0.0;
             this.totalClassesTaken = 0;
             this.status = "student";
+            this.Advisor= advisor;
             this.classes = new List<Class>();
             this.classHistory = new List<Class>();
             this.gpaEarned = 0;
@@ -30,7 +32,7 @@ namespace CDD
             creditsAttempted = 0;
         }
 
-        public override void addClass(Class c, bool doAnyway)
+        public override void addClass(ref Class c, bool doAnyway)
         {
             bool taking = false;
             bool conflict = false;
@@ -85,6 +87,7 @@ namespace CDD
                 Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, grade, 0.0);
                 addClassHistory(cl);
                 classes.Add(c);
+                c.addStudent(this);
                 currentClassesNum++;
                 c.SeatsAvail--;
             }
@@ -195,6 +198,11 @@ namespace CDD
                 }
             }
             return totalCredits;
+        }
+
+        public override void addClass(Class c)
+        {
+            throw new NotImplementedException();
         }
     }
 

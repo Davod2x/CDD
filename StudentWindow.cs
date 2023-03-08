@@ -38,7 +38,7 @@ namespace CDD
         {
             try
             {
-                user.addClass(rs.classDB.classes[rowIndex], doAnyway);
+                user.addClass(ref rs.classDB.classes[rowIndex], doAnyway);
             }
             catch (InvalidOperationException)
             {

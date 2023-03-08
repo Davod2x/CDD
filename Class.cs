@@ -32,6 +32,8 @@ namespace CDD
 
         public string FormattedTime { get; private set; }
 
+        public List<Student> Students { get; private set; } 
+
 
 
         public Class(string dpt, string classNum, string section, string name,  string prof, string credits, string seats, string startTime, string endTime, string days)
@@ -47,7 +49,7 @@ namespace CDD
             this.StartTime = startTime;
             this.Days = days;
             this.EndTime = endTime;
-            
+            this.Students = new List<Student>();   
             Course = Dpt + "-"+ classNum+ "-"+ section;
             FormattedTime = StartTime+ "-" + EndTime;
 
@@ -65,7 +67,12 @@ namespace CDD
             this.grade = grade;
             this.Gpa = gpa;
         }
-       
+
+        public void addStudent(Student s)
+        {
+            Students.Add(s);
+        }
+
         //public Class(string user, string classes, string coursename,string term, string credits, string grade)
         //{
         //    this.user = user;
@@ -100,6 +107,7 @@ namespace CDD
                 return this.Course + " " + this.term + " " + this.Credits + " " + this.grade + " " + this.Gpa;
             }
         }
+
     }
 
 }

@@ -97,7 +97,7 @@ namespace CDD
                     {
                         if (prof == u.getUsername())
                         {
-                            u.addClass(c, false);
+                            u.addClass(c);
                             Console.Out.WriteLine(c);
                         }
                     }

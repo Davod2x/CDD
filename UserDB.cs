@@ -43,14 +43,37 @@ namespace CDD
                 }
                 else
                 {
-                    user = new Student(s[2], s[4], s[3], s[0], s[1]);
+                    user = new Student(s[2], s[4], s[3], s[0], s[1], s[5]);
+
                 }
                 users.Add(user);
             }
 
 
-            // iterate through history file
-            this.lines = File.ReadAllLines(fhistory);
+
+
+            foreach(User u in users)
+            {
+                if (u.getStatus() == "faculty")
+                {
+                    Faculty f = (Faculty)u;
+                    foreach(User us in users)
+                    {
+                        if(us.getStatus() == "student")
+                        {
+                            Student st = (Student)us;
+                            if (st.Advisor == f.getUsername())
+                            {
+                                f.addStudent(st);
+                            }
+                        }
+                    }
+                    users[users.IndexOf(u)] = f;
+                }
+            }
+
+                // iterate through history file
+                this.lines = File.ReadAllLines(fhistory);
             s.RemoveAll(x => x.Length>0);  //don't think it's neeeded
 
 
