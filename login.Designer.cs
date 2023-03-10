@@ -115,10 +115,7 @@
             this.textBox3.Size = new System.Drawing.Size(278, 76);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "Username or Password Incorrect: Try Again";
-            // 
-            // viewCoursesToolStripMenuItem
-            // 
-            
+            this.textBox3.Visible = false;
             // 
             // label3
             // 
@@ -136,7 +133,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(468, 170);
+            this.pictureBox1.Location = new System.Drawing.Point(416, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(906, 1167);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -149,12 +146,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(2594, 1366);
+            this.ClientSize = new System.Drawing.Size(1364, 1244);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "login";
             this.Text = "login";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

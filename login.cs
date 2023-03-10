@@ -41,7 +41,7 @@ namespace CDD
                 user = rs.userDB.GetUser(Username);
                 if (user.getStatus() == "faculty")
                 {
-                    FacultyWindow window = new FacultyWindow(ref rs);
+                    FacultyWindow window = new FacultyWindow(ref rs, user);
                     window.Show();
                     panel1.Visible = false;
                 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,18 +36,12 @@
             this.SeatsAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Days = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.viewScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewEnrolledStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(242, 60);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "View Courses";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -126,23 +119,52 @@
             this.Time.Name = "Time";
             this.Time.Width = 118;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewScheduleToolStripMenuItem,
+            this.viewEnrolledStudentsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(2064, 45);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // viewScheduleToolStripMenuItem
+            // 
+            this.viewScheduleToolStripMenuItem.Name = "viewScheduleToolStripMenuItem";
+            this.viewScheduleToolStripMenuItem.Size = new System.Drawing.Size(211, 41);
+            this.viewScheduleToolStripMenuItem.Text = "View Schedule";
+            this.viewScheduleToolStripMenuItem.Click += new System.EventHandler(this.viewScheduleToolStripMenuItem_Click);
+            // 
+            // viewEnrolledStudentsToolStripMenuItem
+            // 
+            this.viewEnrolledStudentsToolStripMenuItem.Name = "viewEnrolledStudentsToolStripMenuItem";
+            this.viewEnrolledStudentsToolStripMenuItem.Size = new System.Drawing.Size(311, 41);
+            this.viewEnrolledStudentsToolStripMenuItem.Text = "View Enrolled Students";
+            // 
             // FacultyWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2064, 1219);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FacultyWindow";
             this.Text = "FacultyWindow";
+            this.Load += new System.EventHandler(this.FacultyWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Class;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
@@ -151,5 +173,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SeatsAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Days;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem viewScheduleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewEnrolledStudentsToolStripMenuItem;
     }
 }

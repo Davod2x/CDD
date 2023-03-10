@@ -14,11 +14,13 @@ namespace CDD
         private char[] whitespace;
         private string[] lines;
         private string[] strings;
+        private string curTerm;
 
 
 
-        public ClassDB(string fname, UserDB userDB)
+        public ClassDB(string fname, UserDB userDB, string curTerm)
         {
+            this.curTerm = curTerm;
             this.lines = File.ReadAllLines(fname);
             this.classes = new List<Class>();
             this.whitespace = new char[] { ' ', '\t' };

@@ -36,9 +36,10 @@ namespace CDD
         
         private void add(bool doAnyway)
         {
+            Class cl = rs.classDB.classes[rowIndex];
             try
             {
-                user.addClass(ref rs.classDB.classes[rowIndex], doAnyway);
+                user.addClass(ref cl, doAnyway);
             }
             catch (InvalidOperationException)
             {

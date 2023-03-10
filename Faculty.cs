@@ -15,6 +15,7 @@ namespace CDD
         {
             this.Advisees = new List<Student>();
             this.status = "faculty";
+            this.classes = new List<Class>();
 
         }
         public override void addClass(Class c)
@@ -37,9 +38,18 @@ namespace CDD
                 }
             }
         }
+       
         public void addStudent(Student student)
         {
             Advisees.Add(student);
+        }
+
+        public void printAdvisees()
+        {
+            foreach(Student s in Advisees)
+            {
+                Console.WriteLine(s.getUsername());
+            }
         }
     }
 

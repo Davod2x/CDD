@@ -51,8 +51,9 @@ namespace CDD
 
 
 
-
-            foreach(User u in users)
+            List<User> list = new List<User>();
+           
+            foreach(var u in users.ToList())
             {
                 if (u.getStatus() == "faculty")
                 {
@@ -68,12 +69,13 @@ namespace CDD
                             }
                         }
                     }
-                    users[users.IndexOf(u)] = f;
+                    Console.WriteLine(f.getUsername());
+                    f.printAdvisees();
+                    users[users.IndexOf(u)] = f; ;
                 }
             }
-
-                // iterate through history file
-                this.lines = File.ReadAllLines(fhistory);
+            
+            this.lines = File.ReadAllLines(fhistory);
             s.RemoveAll(x => x.Length>0);  //don't think it's neeeded
 
 

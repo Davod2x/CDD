@@ -14,7 +14,11 @@ namespace CDD
             this.status = "admin";
 
         }
-        public override void addClass(Class c, bool doAnyway)
+        public override void addClass(ref Class c, bool doAnyway)
+        {
+            throw new NotImplementedException();
+        }
+        public override void addClass(Class c)
         {
             throw new NotImplementedException();
         }

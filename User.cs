@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CDD
 {
-    internal abstract class User
+    internal abstract class User 
     {
         protected string fname;
         protected string lname;
