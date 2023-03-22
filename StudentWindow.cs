@@ -166,5 +166,10 @@ namespace CDD
             user.removeClass(user.classes[rowIndex]);
             dataGridView2.Rows.RemoveAt(rowIndex);
         }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

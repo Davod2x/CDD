@@ -102,7 +102,7 @@ namespace CDD
 
         public override string ToString()
         {
-            return this.getfName() + this.getmName() + this.getlName() + this.getUsername() + this.getPassword();
+            return this.getfName() +" " + this.getmName() + " " + this.getlName() + " " + this.getUsername();
         }
 
         public abstract void addClass(Class c);// children classes decide functionality

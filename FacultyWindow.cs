@@ -74,5 +74,28 @@ namespace CDD
         {
 
         }
+
+        private void viewEnrolledStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Visible = false;
+            dataGridView2.Rows.Clear();
+            string[] row;
+            foreach (Class c in user.classes)
+            {
+                if (c.Students.Count > 0)
+                {
+                    row = c.ToString().Split(' ');
+                    dataGridView2.Rows.Add(row);
+                    foreach (Student s in c.Students)
+                    {
+                        row = new string[] { "Students Enrolled", " ", " ", " ", " ", " ", " " };
+                        dataGridView2.Rows.Add(row);
+                        row = new string[] { s.ToString(), " ", " ", " ", " ", " ", " " };
+                        dataGridView2.Rows.Add(row);
+                    }
+                }
+            }
+            dataGridView2.Visible = true;
+        }
     }
 }

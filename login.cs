@@ -43,7 +43,7 @@ namespace CDD
                 {
                     FacultyWindow window = new FacultyWindow(ref rs, user);
                     window.Show();
-                    panel1.Visible = false;
+                    
                 }
                 else if (user.getStatus() == "admin")
                 {
@@ -150,6 +150,11 @@ namespace CDD
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
