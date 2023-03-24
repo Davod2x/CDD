@@ -16,6 +16,7 @@ namespace CDD
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
         public string Advisor { get; private set;}
+        public bool ValidSchedule { get; set;}
 
         public Student(string fname, string lname, string mname, string username, string password, string advisor)
             : base(fname, lname, mname, username, password)
@@ -30,6 +31,7 @@ namespace CDD
             this.gpaEarned = 0;
             creditsEarned = 0;
             creditsAttempted = 0;
+            this.ValidSchedule = null
         }
 
         public override void addClass(ref Class c, bool doAnyway)
@@ -177,7 +179,11 @@ namespace CDD
             double credits=0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade != "N")
+                if (c.grade == "U")
+                {
+                    credits += 0;
+                }
+                else if (c.grade != "N")
                 {
                     credits += double.Parse(c.Credits);
                 }
@@ -192,7 +198,11 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade != "N")
+                if (c.grade == "U")
+                {
+                    totalCredits += 0;
+                }
+                else if (c.grade != "N")
                 {
                     totalCredits += double.Parse(c.Credits);
                 }

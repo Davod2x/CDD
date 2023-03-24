@@ -180,63 +180,63 @@ namespace CDD
             double GPA = 0.0;
             double creed = double.Parse(credits);
             
-            if (grade.Equals("A"))
+            if (grade.Contains("A"))
             {
                 GPA = 4.0*creed;
             }
-            if (grade.Equals("A-"))
+            if (grade.Contains("A-"))
             {
                 GPA = 3.7 * creed;
             }
-            if (grade.Equals("B+"))
+            if (grade.Contains("B+"))
             {
                 GPA = 3.3 * creed;
             }
-            if (grade.Equals("B"))
+            if (grade.Contains("B"))
             {
                 GPA = 3.0 * creed;
             }
-            if (grade.Equals("B-"))
+            if (grade.Contains("B-"))
             {
                 GPA = 2.7 * creed;
             }
-            if (grade.Equals("C+"))
+            if (grade.Contains("C+"))
             {
                 GPA = 2.3 * creed;
             }
-            if (grade.Equals("C"))
+            if (grade.Contains("C"))
             {
                 GPA = 2.0 * creed;
             }
-            if (grade.Equals("C-"))
+            if (grade.Contains("C-"))
             {
                 GPA = 1.7 * creed;
             }
-            if (grade.Equals("D+"))
+            if (grade.Contains("D+"))
             {
                 GPA = 1.3 * creed;
             }
-            if (grade.Equals("D"))
+            if (grade.Contains("D"))
             {
                 GPA = 1.0 * creed;
             }
-            if (grade.Equals("D-"))
+            if (grade.Contains("D-"))
             {
                 GPA = 0.7 * creed;
             }
-            if (grade.Equals("F"))
+            if (grade.Contains("F"))
             {
                 GPA = 0.0;
             }
-            if (grade.Equals("WF"))
+            if (grade.Contains("WF"))
             {
                 GPA = 0.0;
             }
-            if (grade.Equals("U"))
+            if (grade.Contains("U"))
             {
                 GPA = 0.0;
             }
-            if (grade.Equals("S"))
+            if (grade.Contains("S"))
             {
                 GPA = 0.0;
             }
