@@ -109,5 +109,7 @@ namespace CDD
         public abstract void addClass(ref Class c, bool doAnyway);
 
         public abstract void removeClass(Class c);
+
+        // poopy
     }
 }
