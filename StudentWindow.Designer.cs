@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Term = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointsEarned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,11 +61,6 @@
             this.viewSceduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCourseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Term = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointsEarned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -87,10 +87,57 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 92;
             this.dataGridView3.RowTemplate.Height = 37;
-            this.dataGridView3.Size = new System.Drawing.Size(1773, 812);
+            this.dataGridView3.Size = new System.Drawing.Size(1286, 812);
             this.dataGridView3.TabIndex = 24;
             this.dataGridView3.Visible = false;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn15.DividerWidth = 2;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Class";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 11;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 124;
+            // 
+            // Term
+            // 
+            this.Term.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Term.HeaderText = "Term";
+            this.Term.MinimumWidth = 11;
+            this.Term.Name = "Term";
+            this.Term.ReadOnly = true;
+            this.Term.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn18.DividerWidth = 2;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Credits";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 11;
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 141;
+            // 
+            // Grade
+            // 
+            this.Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Grade.HeaderText = "Grade";
+            this.Grade.MinimumWidth = 11;
+            this.Grade.Name = "Grade";
+            this.Grade.ReadOnly = true;
+            this.Grade.Width = 129;
+            // 
+            // PointsEarned
+            // 
+            this.PointsEarned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PointsEarned.HeaderText = " Grade Points";
+            this.PointsEarned.MinimumWidth = 11;
+            this.PointsEarned.Name = "PointsEarned";
+            this.PointsEarned.ReadOnly = true;
+            this.PointsEarned.Width = 208;
             // 
             // dataGridView1
             // 
@@ -114,7 +161,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 92;
             this.dataGridView1.RowTemplate.Height = 37;
-            this.dataGridView1.Size = new System.Drawing.Size(1889, 812);
+            this.dataGridView1.Size = new System.Drawing.Size(1286, 812);
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -210,7 +257,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 92;
             this.dataGridView2.RowTemplate.Height = 37;
-            this.dataGridView2.Size = new System.Drawing.Size(1856, 812);
+            this.dataGridView2.Size = new System.Drawing.Size(1286, 812);
             this.dataGridView2.TabIndex = 22;
             this.dataGridView2.Visible = false;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_2);
@@ -330,84 +377,37 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2315, 45);
+            this.menuStrip1.Size = new System.Drawing.Size(1579, 54);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // viewCoursesToolStripMenuItem
             // 
             this.viewCoursesToolStripMenuItem.Name = "viewCoursesToolStripMenuItem";
-            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 41);
+            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 46);
             this.viewCoursesToolStripMenuItem.Text = "View/Add Courses";
             this.viewCoursesToolStripMenuItem.Click += new System.EventHandler(this.viewCoursesToolStripMenuItem_Click_1);
             // 
             // viewSceduleToolStripMenuItem
             // 
             this.viewSceduleToolStripMenuItem.Name = "viewSceduleToolStripMenuItem";
-            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 41);
+            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 46);
             this.viewSceduleToolStripMenuItem.Text = "View Scedule";
             this.viewSceduleToolStripMenuItem.Click += new System.EventHandler(this.viewSceduleToolStripMenuItem_Click_1);
             // 
             // viewCourseHistoryToolStripMenuItem
             // 
             this.viewCourseHistoryToolStripMenuItem.Name = "viewCourseHistoryToolStripMenuItem";
-            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 41);
+            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 46);
             this.viewCourseHistoryToolStripMenuItem.Text = "View Course History";
             this.viewCourseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewCourseHistoryToolStripMenuItem_Click_1);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 41);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 46);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click_1);
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn15.DividerWidth = 2;
-            this.dataGridViewTextBoxColumn15.HeaderText = "Class";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 11;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 124;
-            // 
-            // Term
-            // 
-            this.Term.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Term.HeaderText = "Term";
-            this.Term.MinimumWidth = 11;
-            this.Term.Name = "Term";
-            this.Term.ReadOnly = true;
-            this.Term.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn18.DividerWidth = 2;
-            this.dataGridViewTextBoxColumn18.HeaderText = "Credits";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 11;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 141;
-            // 
-            // Grade
-            // 
-            this.Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Grade.HeaderText = "Grade";
-            this.Grade.MinimumWidth = 11;
-            this.Grade.Name = "Grade";
-            this.Grade.ReadOnly = true;
-            this.Grade.Width = 129;
-            // 
-            // PointsEarned
-            // 
-            this.PointsEarned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PointsEarned.HeaderText = " Grade Points";
-            this.PointsEarned.MinimumWidth = 11;
-            this.PointsEarned.Name = "PointsEarned";
-            this.PointsEarned.ReadOnly = true;
-            this.PointsEarned.Width = 208;
             // 
             // StudentWindow
             // 
@@ -415,7 +415,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(2315, 1167);
+            this.ClientSize = new System.Drawing.Size(1579, 987);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView1);

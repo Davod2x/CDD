@@ -53,7 +53,8 @@ namespace CDD
         {
             string[] row;
             char[] ch = new char[] { ' ' };
-            dataGridView1.Visible = false;
+            dataGridView2.Visible = false;
+            dataGridView3.Visible = false;
             //button2.Visible = false;
             //dataGridView3.Visible = false;
             dataGridView1.Rows.Clear();
@@ -78,6 +79,7 @@ namespace CDD
         private void viewEnrolledStudentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = false;
+            dataGridView3.Visible = false;
             dataGridView2.Rows.Clear();
             string[] row;
             foreach (Class c in user.classes)
@@ -96,6 +98,36 @@ namespace CDD
                 }
             }
             dataGridView2.Visible = true;
+        }
+
+        private void viewAdviseeSchedulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Faculty f = (Faculty)user;
+            dataGridView1.Visible=false;
+            dataGridView2.Visible=false;
+            dataGridView3.Rows.Clear();
+            string[] row;
+            foreach(Student s in f.Advisees)
+            {
+                row = s.ToString().Split(' ') ;
+                dataGridView3.Rows.Add(row);
+                foreach(Class c in s.classes)
+                {
+                    row = c.ToString().Split(' ');
+                    dataGridView3.Rows.Add(row);
+                }
+            }
+            dataGridView3.Visible = true;
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           this.Close();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

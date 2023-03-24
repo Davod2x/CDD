@@ -9,7 +9,7 @@ namespace CDD
     internal class Faculty : User
 
     {
-        private List<Student> Advisees { get; set; }
+        public List<Student> Advisees { get; set; }
         public Faculty(string fname, string lname, string mname, string username, string password)
             : base(fname, lname, mname, username, password)
         {

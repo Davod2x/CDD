@@ -61,9 +61,10 @@ namespace CDD
             else
             {
                 textBox3.Visible = true;
-                textBox1.Clear();
-                textBox2.Clear();
+               
             }
+            textBox1.Clear();
+            textBox2.Clear();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
