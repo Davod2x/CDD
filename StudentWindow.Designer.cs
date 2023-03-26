@@ -61,6 +61,7 @@
             this.viewSceduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCourseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -87,7 +88,7 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 92;
             this.dataGridView3.RowTemplate.Height = 37;
-            this.dataGridView3.Size = new System.Drawing.Size(1286, 812);
+            this.dataGridView3.Size = new System.Drawing.Size(1286, 584);
             this.dataGridView3.TabIndex = 24;
             this.dataGridView3.Visible = false;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
@@ -161,7 +162,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 92;
             this.dataGridView1.RowTemplate.Height = 37;
-            this.dataGridView1.Size = new System.Drawing.Size(1286, 812);
+            this.dataGridView1.Size = new System.Drawing.Size(1286, 614);
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -257,7 +258,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 92;
             this.dataGridView2.RowTemplate.Height = 37;
-            this.dataGridView2.Size = new System.Drawing.Size(1286, 812);
+            this.dataGridView2.Size = new System.Drawing.Size(1286, 534);
             this.dataGridView2.TabIndex = 22;
             this.dataGridView2.Visible = false;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_2);
@@ -377,37 +378,48 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1579, 54);
+            this.menuStrip1.Size = new System.Drawing.Size(1579, 45);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // viewCoursesToolStripMenuItem
             // 
             this.viewCoursesToolStripMenuItem.Name = "viewCoursesToolStripMenuItem";
-            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 46);
+            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 41);
             this.viewCoursesToolStripMenuItem.Text = "View/Add Courses";
             this.viewCoursesToolStripMenuItem.Click += new System.EventHandler(this.viewCoursesToolStripMenuItem_Click_1);
             // 
             // viewSceduleToolStripMenuItem
             // 
             this.viewSceduleToolStripMenuItem.Name = "viewSceduleToolStripMenuItem";
-            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 46);
+            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 41);
             this.viewSceduleToolStripMenuItem.Text = "View Scedule";
             this.viewSceduleToolStripMenuItem.Click += new System.EventHandler(this.viewSceduleToolStripMenuItem_Click_1);
             // 
             // viewCourseHistoryToolStripMenuItem
             // 
             this.viewCourseHistoryToolStripMenuItem.Name = "viewCourseHistoryToolStripMenuItem";
-            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 46);
+            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 41);
             this.viewCourseHistoryToolStripMenuItem.Text = "View Course History";
             this.viewCourseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewCourseHistoryToolStripMenuItem_Click_1);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 46);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 41);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 665);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 29);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // StudentWindow
             // 
@@ -416,6 +428,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(1579, 987);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView1);
@@ -425,6 +438,7 @@
             this.Controls.Add(this.label3);
             this.Name = "StudentWindow";
             this.Text = "StudentWindow";
+            this.Load += new System.EventHandler(this.StudentWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -439,21 +453,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
@@ -467,7 +467,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsEarned;
-
-        
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Label label1;
     }
 }

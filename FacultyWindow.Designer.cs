@@ -60,6 +60,7 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Approve = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -206,7 +207,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dataGridView2.Location = new System.Drawing.Point(13, 144);
+            this.dataGridView2.Location = new System.Drawing.Point(13, 109);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 92;
             this.dataGridView2.RowTemplate.Height = 37;
@@ -273,6 +274,8 @@
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Transparent;
@@ -286,14 +289,17 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
-            this.dataGridView3.Location = new System.Drawing.Point(13, 241);
+            this.dataGridViewTextBoxColumn14,
+            this.Approve});
+            this.dataGridView3.Location = new System.Drawing.Point(13, 114);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 92;
             this.dataGridView3.RowTemplate.Height = 37;
             this.dataGridView3.Size = new System.Drawing.Size(1440, 503);
             this.dataGridView3.TabIndex = 8;
             this.dataGridView3.Visible = false;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -301,6 +307,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Class";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 122;
             // 
             // dataGridViewTextBoxColumn9
@@ -309,6 +316,7 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "Course Name";
             this.dataGridViewTextBoxColumn9.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Width = 194;
             // 
             // dataGridViewTextBoxColumn10
@@ -317,6 +325,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "instructor";
             this.dataGridViewTextBoxColumn10.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 160;
             // 
             // dataGridViewTextBoxColumn11
@@ -325,6 +334,7 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "Credits";
             this.dataGridViewTextBoxColumn11.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Width = 139;
             // 
             // dataGridViewTextBoxColumn12
@@ -333,6 +343,7 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "Seats Available";
             this.dataGridViewTextBoxColumn12.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             this.dataGridViewTextBoxColumn12.Width = 209;
             // 
             // dataGridViewTextBoxColumn13
@@ -341,6 +352,7 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "Days";
             this.dataGridViewTextBoxColumn13.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             this.dataGridViewTextBoxColumn13.Width = 115;
             // 
             // dataGridViewTextBoxColumn14
@@ -349,7 +361,18 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Time";
             this.dataGridViewTextBoxColumn14.MinimumWidth = 11;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Width = 118;
+            // 
+            // Approve
+            // 
+            this.Approve.HeaderText = "";
+            this.Approve.MinimumWidth = 11;
+            this.Approve.Name = "Approve";
+            this.Approve.ReadOnly = true;
+            this.Approve.Text = "Approve Schedule";
+            this.Approve.UseColumnTextForButtonValue = true;
+            this.Approve.Width = 225;
             // 
             // FacultyWindow
             // 
@@ -397,6 +420,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
@@ -404,6 +428,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewButtonColumn Approve;
     }
 }

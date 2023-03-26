@@ -120,14 +120,14 @@ namespace CDD
             foreach (Class c in user.classes)
             {
                 row = c.ToString().Split(ch);
-
-
                 dataGridView2.Rows.Add(row);
+                
             }
 
 
             dataGridView2.Visible = true;
             button3.Visible = true;
+            label1.Visible = true;
         }
 
         private void viewCourseHistoryToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -168,6 +168,25 @@ namespace CDD
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void StudentWindow_Load(object sender, EventArgs e)
+        {
+            if(user.ScheduleApproved == true)
+            {
+                label1.Text = "Schedule Approved";
+                label1.ForeColor = Color.LimeGreen;
+            }
+            else
+            {
+                label1.Text = "Schedule Not Yet Approved";
+                label1.ForeColor = Color.Red;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

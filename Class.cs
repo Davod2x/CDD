@@ -100,7 +100,7 @@ namespace CDD
         {
             if (grade == null)
             {
-                return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.Seats + " " + this.Days + " " + this.FormattedTime;
+                return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.SeatsAvail + " " + this.Days + " " + this.FormattedTime;
             }
             else
             {

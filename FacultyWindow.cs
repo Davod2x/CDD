@@ -13,11 +13,11 @@ namespace CDD
     internal partial class FacultyWindow : Form
     {
         protected RS rs;
-        protected User user;
+        protected Faculty user;
         public FacultyWindow(ref RS rs, User user)
         {
             this.rs = rs;
-            this.user = user;
+            this.user = (Faculty)user;
             InitializeComponent();
         }
 
@@ -102,19 +102,28 @@ namespace CDD
 
         private void viewAdviseeSchedulesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Faculty f = (Faculty)user;
+            
             dataGridView1.Visible=false;
             dataGridView2.Visible=false;
             dataGridView3.Rows.Clear();
             string[] row;
-            foreach(Student s in f.Advisees)
+            foreach(Student s in user.Advisees)
             {
                 row = s.ToString().Split(' ') ;
+            
                 dataGridView3.Rows.Add(row);
                 foreach(Class c in s.classes)
                 {
                     row = c.ToString().Split(' ');
                     dataGridView3.Rows.Add(row);
+                }
+            }
+            foreach(DataGridViewRow dr in dataGridView3.Rows)
+            {
+                if ((dr.Cells[4].Value != null))
+                {
+                    DataGridViewTextBoxCell txtcell = new DataGridViewTextBoxCell();
+                    dr.Cells[7] = txtcell;
                 }
             }
             dataGridView3.Visible = true;
@@ -128,6 +137,25 @@ namespace CDD
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView3.Columns[e.ColumnIndex].Name == "Approve")
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to approve schedule", "Add Course", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Student s = (Student)rs.userDB.GetUser((string)dataGridView3.Rows[e.RowIndex].Cells[3].Value);
+                    foreach(Student student in user.Advisees) { 
+                        if(student == s)
+                        {
+                            student.ScheduleApproved= true;
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

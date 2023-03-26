@@ -16,7 +16,7 @@ namespace CDD
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
         public string Advisor { get; private set;}
-
+        public bool ScheduleApproved { get; set; }
         public Student(string fname, string lname, string mname, string username, string password, string advisor)
             : base(fname, lname, mname, username, password)
         {
@@ -30,6 +30,7 @@ namespace CDD
             this.gpaEarned = 0;
             creditsEarned = 0;
             creditsAttempted = 0;
+            this.ScheduleApproved= false;
         }
 
         public override void addClass(ref Class c, bool doAnyway)
