@@ -13,17 +13,18 @@ using System.Windows.Forms;
 namespace CDD
 {
 
-    public partial class login : Form
+    internal partial class login : Form
     {
         public static string Username { get; set; }
         string password;
-        private RS rs;
+        
         User user;
         int rowIndex;
-        public login()
+        private RS rs;
+        public login(RS rs)
             
         {
-            this.rs= new RS();
+            this.rs = rs;
             InitializeComponent();
         }
        

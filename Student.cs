@@ -178,7 +178,11 @@ namespace CDD
             double credits=0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade != "N")
+                if (c.grade == "U")
+                {
+                    credits += 0;
+                }
+                else if (c.grade != "N")
                 {
                     credits += double.Parse(c.Credits);
                 }
@@ -193,7 +197,11 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade != "N")
+                if (c.grade == "U")
+                {
+                    totalCredits += 0;
+                }
+                else if (c.grade != "N")
                 {
                     totalCredits += double.Parse(c.Credits);
                 }
