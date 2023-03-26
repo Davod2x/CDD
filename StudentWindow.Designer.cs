@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,6 +45,7 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddCourse1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +54,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DropCourse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.viewCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +83,7 @@
             this.Grade,
             this.PointsEarned});
             this.dataGridView3.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView3.Location = new System.Drawing.Point(22, 74);
+            this.dataGridView3.Location = new System.Drawing.Point(12, 69);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 92;
@@ -156,9 +155,10 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
+            this.dataGridViewTextBoxColumn14,
+            this.AddCourse1});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 92;
@@ -238,6 +238,18 @@
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Width = 120;
             // 
+            // AddCourse1
+            // 
+            this.AddCourse1.HeaderText = "Add Course";
+            this.AddCourse1.MinimumWidth = 11;
+            this.AddCourse1.Name = "AddCourse1";
+            this.AddCourse1.ReadOnly = true;
+            this.AddCourse1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AddCourse1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.AddCourse1.Text = "Add";
+            this.AddCourse1.UseColumnTextForButtonValue = true;
+            this.AddCourse1.Width = 225;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -252,9 +264,10 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.DropCourse});
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView2.Location = new System.Drawing.Point(22, 74);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 69);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 92;
@@ -334,27 +347,15 @@
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 120;
             // 
-            // button3
+            // DropCourse
             // 
-            this.button3.Location = new System.Drawing.Point(1339, 892);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 59);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Drop Course";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1339, 892);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 59);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Add Course";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.DropCourse.HeaderText = "Drop Course";
+            this.DropCourse.MinimumWidth = 11;
+            this.DropCourse.Name = "DropCourse";
+            this.DropCourse.ReadOnly = true;
+            this.DropCourse.Text = "Drop";
+            this.DropCourse.UseColumnTextForButtonValue = true;
+            this.DropCourse.Width = 225;
             // 
             // label3
             // 
@@ -414,7 +415,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 665);
+            this.label1.Location = new System.Drawing.Point(12, 686);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 29);
             this.label1.TabIndex = 26;
@@ -434,8 +435,6 @@
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Name = "StudentWindow";
             this.Text = "StudentWindow";
@@ -455,8 +454,6 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem viewCoursesToolStripMenuItem;
@@ -468,6 +465,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsEarned;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
@@ -475,6 +473,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewButtonColumn AddCourse1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -482,6 +481,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewButtonColumn DropCourse;
     }
 }

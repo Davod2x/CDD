@@ -26,17 +26,17 @@ namespace CDD
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you would like to add this course", "Add Course", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                add(false);
+            //DialogResult dialogResult = MessageBox.Show("Are you sure you would like to add this course", "Add Course", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    add(false);
 
-            }
+            //}
         }
         
-        private void add(bool doAnyway)
+        private void add(bool doAnyway, int index)
         {
-            Class cl = rs.classDB.classes[rowIndex];
+            Class cl = rs.classDB.classes[index];
             try
             {
                 user.addClass(ref cl, doAnyway);
@@ -47,7 +47,7 @@ namespace CDD
                 bool taking = false;
                 foreach (Class c in user.classHistory)
                 {
-                    if (rs.classDB.classes[rowIndex] == c)
+                    if (rs.classDB.classes[index] == c)
                     {
                         previous = true; break;
                     }
@@ -65,7 +65,7 @@ namespace CDD
                     DialogResult dialogResult2 = MessageBox.Show("You have previously taken this course. Would you like to retake it?", "Add Course", MessageBoxButtons.YesNo);
                     if (dialogResult2 == DialogResult.Yes)
                     {
-                        add(true);
+                        add(true, index);
                     }
 
 
@@ -79,7 +79,14 @@ namespace CDD
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           rowIndex = e.RowIndex;
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "AddCourse1"){
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to add this course", "Add Course", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    add(false, e.RowIndex);
+
+                }
+            }
         }
 
         private void viewCoursesToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -97,15 +104,25 @@ namespace CDD
             }
 
             dataGridView2.Visible = false;
-            button3.Visible = false;
+            
             dataGridView1.Visible = true;
-            button2.Visible = true;
+            
             dataGridView3.Visible = false;
         }
 
         private void dataGridView2_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
-            rowIndex= e.RowIndex;
+            if(dataGridView2.Columns[e.ColumnIndex].Name == "DropCourse")
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to drop this course", "Add Course", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    user.removeClass(user.classes[e.RowIndex]);
+                    dataGridView2.Rows.RemoveAt(e.RowIndex);
+
+                }
+            }
+           
         }
 
         private void viewSceduleToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -113,7 +130,7 @@ namespace CDD
             string[] row;
             char[] ch = new char[] { ' ' };
             dataGridView1.Visible = false;
-            button2.Visible = false;
+            
             dataGridView3.Visible = false;
             dataGridView2.Rows.Clear();
 
@@ -126,7 +143,7 @@ namespace CDD
 
 
             dataGridView2.Visible = true;
-            button3.Visible = true;
+            
             label1.Visible = true;
         }
 
@@ -149,9 +166,9 @@ namespace CDD
 
             dataGridView3.Rows.Add(row);
             dataGridView2.Visible = false;
-            button3.Visible = false;
+            
             dataGridView1.Visible = false;
-            button2.Visible = false;
+            
             dataGridView3.Visible = true;
         }
 
