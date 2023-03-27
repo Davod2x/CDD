@@ -119,6 +119,9 @@ namespace CDD
                 {
                     user.removeClass(user.classes[e.RowIndex]);
                     dataGridView2.Rows.RemoveAt(e.RowIndex);
+                    user.ScheduleApproved = false;
+                    label1.Text = "Schedule Not Yet Approved";
+                    label1.ForeColor = Color.Red;
 
                 }
             }
