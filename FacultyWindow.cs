@@ -88,10 +88,10 @@ namespace CDD
                 {
                     row = c.ToString().Split(' ');
                     dataGridView2.Rows.Add(row);
+                    row = new string[] { "Students Enrolled", " ", " ", " ", " ", " ", " " };
+                    dataGridView2.Rows.Add(row);
                     foreach (Student s in c.Students)
                     {
-                        row = new string[] { "Students Enrolled", " ", " ", " ", " ", " ", " " };
-                        dataGridView2.Rows.Add(row);
                         row = new string[] { s.ToString(), " ", " ", " ", " ", " ", " " };
                         dataGridView2.Rows.Add(row);
                     }
