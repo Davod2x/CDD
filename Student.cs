@@ -12,7 +12,7 @@ namespace CDD
     {
         double creditsEarned;
         double creditsAttempted;
-        int currentClassesNum;
+        public int currentClassesNum { get; set; } 
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
         public string Advisor { get; private set;}
@@ -65,16 +65,20 @@ namespace CDD
                     previous = true;
                 }
             }
-            if (currentClassesNum >=5)
+            if (currentClassesNum >=5 && !doAnyway)
             {
+                c.Conflict = true;
                 throw new InvalidOperationException("Schedule Overload & Time Conflict");
             }
-            else if (conflict || taking)
+            else if ((conflict || taking) && !doAnyway)
             {
+                c.Conflict = true;
                 throw new InvalidOperationException();
+
             }
             else if (previous && !doAnyway)
             {
+                c.Conflict = true;
                 throw new InvalidOperationException() ;
             }
             else

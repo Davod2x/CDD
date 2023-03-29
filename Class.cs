@@ -18,7 +18,7 @@ namespace CDD
         public string Dpt { get; private set; }
         public string ClassNum { get; private set; }
         public string Section { get; private set; }
-        public string Prof { get; private set; }
+        public string Prof { get; set; }
         public string Credits { get; private set; }
         public string Seats { get; private set; }
         public int SeatsAvail { get; set; }
@@ -34,6 +34,7 @@ namespace CDD
 
         public List<Student> Students { get; private set; } 
 
+        public bool Conflict { get; set; }
 
 
         public Class(string dpt, string classNum, string section, string name,  string prof, string credits, string seats, string startTime, string endTime, string days)
@@ -52,7 +53,7 @@ namespace CDD
             this.Students = new List<Student>();   
             Course = Dpt + "-"+ classNum+ "-"+ section;
             FormattedTime = StartTime+ "-" + EndTime;
-
+            this.Conflict = false;
             this.term = null;
             this.grade = null;
         }

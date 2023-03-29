@@ -115,7 +115,13 @@ namespace CDD
                 foreach(Class c in s.classes)
                 {
                     row = c.ToString().Split(' ');
+                    
+                  
                     dataGridView3.Rows.Add(row);
+                    if(c.Conflict == true)
+                    {
+                        dataGridView3.Rows[dataGridView3.Rows.Count-1].DefaultCellStyle.ForeColor = Color.Red;
+                    }
                 }
             }
             foreach(DataGridViewRow dr in dataGridView3.Rows)
@@ -141,12 +147,13 @@ namespace CDD
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Student s = (Student)rs.userDB.GetUser((string)dataGridView3.Rows[e.RowIndex].Cells[3].Value);
             if (dataGridView3.Columns[e.ColumnIndex].Name == "Approve")
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you would like to approve schedule", "Add Course", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Student s = (Student)rs.userDB.GetUser((string)dataGridView3.Rows[e.RowIndex].Cells[3].Value);
+                   
                     foreach(Student student in user.Advisees) { 
                         if(student == s)
                         {
@@ -156,6 +163,24 @@ namespace CDD
 
                 }
             }
+            else if (dataGridView3.Rows[e.RowIndex].DefaultCellStyle.ForeColor.Equals(Color.Red))
+            {
+                    
+            }
+        }
+
+        private void vIewAllCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Visible= false;
+            dataGridView2.Visible= false;
+            dataGridView3.Visible= false;
+            string[] row;
+            foreach(Class c in rs.classDB.classes)
+            {
+                row = c.ToString().Split(' ');
+                dataGridView4.Rows.Add(row);
+            }
+            dataGridView4.Visible = true;
         }
     }
 }

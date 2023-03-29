@@ -62,17 +62,15 @@ namespace CDD
                 if (previous && !taking)
                 {
 
-                    DialogResult dialogResult2 = MessageBox.Show("You have previously taken this course. Would you like to retake it?", "Add Course", MessageBoxButtons.YesNo);
-                    if (dialogResult2 == DialogResult.Yes)
-                    {
-                        add(true, index);
-                    }
+                    MessageBox.Show("Warning: Previously Taken Course");
+                    add(true, index);
 
 
                 }
                 else
                 {
-                    MessageBox.Show("Could not add course: already taking or time conflict");
+                    MessageBox.Show("Warning: Already Taking or Time Conflict");
+                    add(true, index);
                 }
             }
         }
