@@ -8,31 +8,31 @@ namespace CDD
 {
     internal class Class
     {
-        //public string user { get; private set; }
+        //public string user { get; set; }
         //public int numclasses { get; set; }
-        //public string coursename { get; private set; }
-        public string term { get; private set; }
-        public string grade { get; private set; }
-        //public string classes { get; private set; }
-        public string Name { get; private set; }
-        public string Dpt { get; private set; }
-        public string ClassNum { get; private set; }
-        public string Section { get; private set; }
+        //public string coursename { get; set; }
+        public string Term { get; set; }
+        public string Grade { get; set; }
+        //public string classes { get; set; }
+        public string Name { get; set; }
+        public string Dpt { get; set; }
+        public string ClassNum { get; set; }
+        public string Section { get; set; }
         public string Prof { get; set; }
-        public string Credits { get; private set; }
-        public string Seats { get; private set; }
+        public string Credits { get; set; }
+        public string Seats { get; set; }
         public int SeatsAvail { get; set; }
-        public string TimeBlocks { get; private set; }
-        public string Days { get; private set; }
-        public string EndTime { get; private set; }
-        public string StartTime { get; private set; }
-        public double Gpa { get; private set; }
+        public string TimeBlocks { get; set; }
+        public string Days { get; set; }
+        public string EndTime { get; set; }
+        public string StartTime { get; set; }
+        public double Gpa { get; set; }
 
-        public string Course { get; private set; }
+        public string Course { get; set; }
 
-        public string FormattedTime { get; private set; }
+        public string FormattedTime { get; set; }
 
-        public List<Student> Students { get; private set; } 
+        public List<Student> Students { get; set; } 
 
         public bool Conflict { get; set; }
 
@@ -54,18 +54,18 @@ namespace CDD
             Course = Dpt + "-"+ classNum+ "-"+ section;
             FormattedTime = StartTime+ "-" + EndTime;
             this.Conflict = false;
-            this.term = null;
-            this.grade = null;
+            this.Term = null;
+            this.Grade = null;
         }
-        public Class(string dpt, string classNum, string section, string term, string credits, string grade, double gpa)
+        public Class(string dpt, string classNum, string section, string Term, string credits, string Grade, double gpa)
         {
             this.Dpt = dpt;
             this.ClassNum = classNum;
             this.Section = section;
             this.Credits = credits;
             Course = Dpt + "-" + classNum + "-" + section;
-            this.term = term;
-            this.grade = grade;
+            this.Term = Term;
+            this.Grade = Grade;
             this.Gpa = gpa;
         }
 
@@ -74,15 +74,15 @@ namespace CDD
             Students.Add(s);
         }
 
-        //public Class(string user, string classes, string coursename,string term, string credits, string grade)
+        //public Class(string user, string classes, string coursename,string Term, string credits, string Grade)
         //{
         //    this.user = user;
         //    this.classes = classes;
         //    this.numclasses = int.Parse(classes);
         //    this .coursename = coursename;
-        //    this.term = term;
+        //    this.Term = Term;
         //    this.Credits = credits;
-        //    this.grade = grade;
+        //    this.Grade = Grade;
 
         //}
 
@@ -95,17 +95,17 @@ namespace CDD
         public static bool operator !=(Class c1, Class c2) { return !(c1 == c2); }
         public bool Equals(Class c)
         {
-            return this.Course == c.Course && this.grade == c.grade;
+            return this.Course == c.Course && this.Grade == c.Grade;
         }
         public override string ToString()
         {
-            if (grade == null)
+            if (Grade == null)
             {
                 return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.SeatsAvail + " " + this.Days + " " + this.FormattedTime;
             }
             else
             {
-                return this.Course + " " + this.term + " " + this.Credits + " " + this.grade + " " + this.Gpa;
+                return this.Course + " " + this.Term + " " + this.Credits + " " + this.Grade + " " + this.Gpa;
             }
         }
 

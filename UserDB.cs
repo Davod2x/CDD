@@ -95,7 +95,7 @@ namespace CDD
                 string course;
                 string term;
                 string credit;
-                string grade;
+                string Grade;
                 double gpaye;
                 Student student = null;
 
@@ -109,7 +109,7 @@ namespace CDD
                     place++;
                     credit = s[place];
                     place++;
-                    grade = s[place];
+                    Grade = s[place];
                     place++;
                     foreach (User user in users)
                     {
@@ -122,8 +122,8 @@ namespace CDD
                     char[] dash = new char[] { '-' };
                     string[] classInfo = new string[] { };
                     classInfo = course.Split(dash);
-                    gpaye = GpaCalculator(credit,grade);
-                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], term, credit, grade,gpaye);
+                    gpaye = GpaCalculator(credit,Grade);
+                    Class c = new Class(classInfo[0], classInfo[1], classInfo[2], term, credit, Grade,gpaye);
                     student.addClassHistory(c);
                     i++;
                 }
@@ -174,69 +174,69 @@ namespace CDD
             }
         }
 
-        public double GpaCalculator(string credits, string grade)
+        public double GpaCalculator(string credits, string Grade)
         {
 
             double GPA = 0.0;
             double creed = double.Parse(credits);
             
-            if (grade.Contains("A"))
+            if (Grade.Contains("A"))
             {
                 GPA = 4.0*creed;
             }
-            if (grade.Contains("A-"))
+            if (Grade.Contains("A-"))
             {
                 GPA = 3.7 * creed;
             }
-            if (grade.Contains("B+"))
+            if (Grade.Contains("B+"))
             {
                 GPA = 3.3 * creed;
             }
-            if (grade.Contains("B"))
+            if (Grade.Contains("B"))
             {
                 GPA = 3.0 * creed;
             }
-            if (grade.Contains("B-"))
+            if (Grade.Contains("B-"))
             {
                 GPA = 2.7 * creed;
             }
-            if (grade.Contains("C+"))
+            if (Grade.Contains("C+"))
             {
                 GPA = 2.3 * creed;
             }
-            if (grade.Contains("C"))
+            if (Grade.Contains("C"))
             {
                 GPA = 2.0 * creed;
             }
-            if (grade.Contains("C-"))
+            if (Grade.Contains("C-"))
             {
                 GPA = 1.7 * creed;
             }
-            if (grade.Contains("D+"))
+            if (Grade.Contains("D+"))
             {
                 GPA = 1.3 * creed;
             }
-            if (grade.Contains("D"))
+            if (Grade.Contains("D"))
             {
                 GPA = 1.0 * creed;
             }
-            if (grade.Contains("D-"))
+            if (Grade.Contains("D-"))
             {
                 GPA = 0.7 * creed;
             }
-            if (grade.Contains("F"))
+            if (Grade.Contains("F"))
             {
                 GPA = 0.0;
             }
-            if (grade.Contains("WF"))
+            if (Grade.Contains("WF"))
             {
                 GPA = 0.0;
             }
-            if (grade.Contains("U"))
+            if (Grade.Contains("U"))
             {
                 GPA = 0.0;
             }
-            if (grade.Contains("S"))
+            if (Grade.Contains("S"))
             {
                 GPA = 0.0;
             }

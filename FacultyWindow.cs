@@ -121,6 +121,17 @@ namespace CDD
                     if(c.Conflict == true)
                     {
                         dataGridView3.Rows[dataGridView3.Rows.Count-1].DefaultCellStyle.ForeColor = Color.Red;
+                        foreach(Class cl in s.classHistory)
+                        {
+                            if((string)dataGridView3.Rows[dataGridView3.Rows.Count - 1].Cells[0].Value == c.Course)
+                            {
+                                dataGridView3.Rows[dataGridView3.Rows.Count - 1].ErrorText = "Student Has Previously Taken Course";
+                            }
+                            else
+                            {
+                                dataGridView3.Rows[dataGridView3.Rows.Count - 1].ErrorText = "Time Conflict or Added Multiple Times";
+                            }
+                        }
                     }
                 }
             }
@@ -163,10 +174,7 @@ namespace CDD
 
                 }
             }
-            else if (dataGridView3.Rows[e.RowIndex].DefaultCellStyle.ForeColor.Equals(Color.Red))
-            {
-                    
-            }
+            
         }
 
         private void vIewAllCoursesToolStripMenuItem_Click(object sender, EventArgs e)

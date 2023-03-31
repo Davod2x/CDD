@@ -35,13 +35,13 @@ namespace CDD
                 }
             }
 
-            string grade = "N";
+            string Grade = "N";
             if (previous)
             {
-                grade = "RN";
+                Grade = "RN";
             }
 
-            Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, grade, 0.0);
+            Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, Grade, 0.0);
             s.addClassHistory(cl);
             s.classes.Add(c);
             c.addStudent(s);
@@ -56,10 +56,12 @@ namespace CDD
             f1.addClass(c);
             f2.removeClass(c);
 
-            // classDB
-            // student 'classes'
-            // faculty 'classes'
 
+        }
+        public void ChangeClassTime(ref Class c, string endt, string startT)
+        {
+            c.StartTime = startT;
+            c.EndTime = endt;
         }
     }
 

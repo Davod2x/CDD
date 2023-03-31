@@ -83,13 +83,13 @@ namespace CDD
             }
             else
             {
-                string grade = "N";
+                string Grade = "N";
                 if (previous)
                 {
-                    grade = "RN";
+                    Grade = "RN";
                 }
                 
-                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, grade, 0.0);
+                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, Grade, 0.0);
                 addClassHistory(cl);
                 classes.Add(c);
                 c.addStudent(this);
@@ -113,7 +113,7 @@ namespace CDD
             classes.Remove(c);
             foreach(Class cl2 in this.classHistory)
             {   
-                if(cl2 == c && cl2.grade.Contains("N"))
+                if(cl2 == c && cl2.Grade.Contains("N"))
                 {
                     cl = cl2;
                 }
@@ -166,7 +166,7 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade != "N" || c.grade !="S")
+                if (c.Grade != "N" || c.Grade !="S")
                 {
                     gpaEarned += c.Gpa;
                     totalCredits += double.Parse(c.Credits);
@@ -182,11 +182,11 @@ namespace CDD
             double credits=0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade == "U")
+                if (c.Grade == "U")
                 {
                     credits += 0;
                 }
-                else if (c.grade != "N")
+                else if (c.Grade != "N")
                 {
                     credits += double.Parse(c.Credits);
                 }
@@ -201,11 +201,11 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.grade == "U")
+                if (c.Grade == "U")
                 {
                     totalCredits += 0;
                 }
-                else if (c.grade != "N")
+                else if (c.Grade != "N")
                 {
                     totalCredits += double.Parse(c.Credits);
                 }

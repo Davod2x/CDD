@@ -238,6 +238,11 @@ namespace CDD
 
         }
 
+        public void removeClass(Class c)
+        {
+            classes.Remove(c);
+        }
+
 
     }
 }
