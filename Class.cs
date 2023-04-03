@@ -22,7 +22,7 @@ namespace CDD
         public string Credits { get; set; }
         public string Seats { get; set; }
         public int SeatsAvail { get; set; }
-        public string TimeBlocks { get; set; }
+        //public string TimeBlocks { get; set; }
         public string Days { get; set; }
         public string EndTime { get; set; }
         public string StartTime { get; set; }

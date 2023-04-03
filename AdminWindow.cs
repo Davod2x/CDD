@@ -10,10 +10,14 @@ using System.Windows.Forms;
 
 namespace CDD
 {
-    public partial class AdminWindow : Form
+    internal partial class AdminWindow : Form
     {
-        public AdminWindow()
+        private RS rs;
+        private Admin user;
+        public AdminWindow(ref RS rs, User user)
         {
+            this.rs = rs;
+            this.user = (Admin)user;   
             InitializeComponent();
         }
 
@@ -36,6 +40,69 @@ namespace CDD
             //    listBox1.Items.Add(c.ToString());
             //}
             //listBox1.Visible = true;
+        }
+
+        private void viewOfferedCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = rs.classDB.classes;
+            dataGridView2.Visible = true;
+            //string[] row;
+            //char[] ch = new char[] { ' ' };
+            //dataGridView2.Rows.Clear();
+
+            //foreach (Class c in rs.classDB.classes)
+            //{
+            //    row = c.ToString().Split(ch);
+
+
+            //    dataGridView1.Rows.Add(row);
+            //}
+        }
+
+        private void studentViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] row;
+            dataGridView1.Rows.Clear();
+            foreach(User u in rs.userDB.users)
+            {
+                if (u.getStatus() == "student")
+                {
+                    row = u.ToString().Split(' ');
+                    dataGridView1.Rows.Add(row);
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dataGridView1.Columns[e.ColumnIndex].Name == "Login")
+            {
+                User u = rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                if (u.getStatus() == "student")
+                {
+                    StudentWindow sWindow = new StudentWindow(ref rs, u);
+                    sWindow.Show();
+                }
+                else
+                {
+                    FacultyWindow fWindow = new FacultyWindow(ref rs, u);
+                    fWindow.Show();
+                }
+            }
+        }
+
+        private void facultyViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] row;
+            dataGridView1.Rows.Clear();
+            foreach (User u in rs.userDB.users)
+            {
+                if (u.getStatus() == "faculty")
+                {
+                    row = u.ToString().Split(' ');
+                    dataGridView1.Rows.Add(row);
+                }
+            }
         }
     }
 }

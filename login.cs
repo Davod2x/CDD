@@ -48,7 +48,7 @@ namespace CDD
                 }
                 else if (user.getStatus() == "admin")
                 {
-                    AdminWindow window = new AdminWindow();
+                    AdminWindow window = new AdminWindow(ref rs, user);
                     window.Show();
                 }
                 else

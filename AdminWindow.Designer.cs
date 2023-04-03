@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.viewOfferedCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,8 +40,12 @@
             this.UName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Login = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.classDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classDBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -62,18 +67,21 @@
             this.viewOfferedCoursesToolStripMenuItem.Name = "viewOfferedCoursesToolStripMenuItem";
             this.viewOfferedCoursesToolStripMenuItem.Size = new System.Drawing.Size(293, 41);
             this.viewOfferedCoursesToolStripMenuItem.Text = "View Offered Courses";
+            this.viewOfferedCoursesToolStripMenuItem.Click += new System.EventHandler(this.viewOfferedCoursesToolStripMenuItem_Click);
             // 
             // studentViewToolStripMenuItem
             // 
             this.studentViewToolStripMenuItem.Name = "studentViewToolStripMenuItem";
             this.studentViewToolStripMenuItem.Size = new System.Drawing.Size(195, 41);
             this.studentViewToolStripMenuItem.Text = "Student View";
+            this.studentViewToolStripMenuItem.Click += new System.EventHandler(this.studentViewToolStripMenuItem_Click);
             // 
             // facultyViewToolStripMenuItem
             // 
             this.facultyViewToolStripMenuItem.Name = "facultyViewToolStripMenuItem";
             this.facultyViewToolStripMenuItem.Size = new System.Drawing.Size(186, 41);
             this.facultyViewToolStripMenuItem.Text = "Faculty View";
+            this.facultyViewToolStripMenuItem.Click += new System.EventHandler(this.facultyViewToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -85,12 +93,14 @@
             this.UName,
             this.Password,
             this.Login});
-            this.dataGridView1.Location = new System.Drawing.Point(40, 82);
+            this.dataGridView1.Location = new System.Drawing.Point(39, 100);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 92;
             this.dataGridView1.RowTemplate.Height = 37;
-            this.dataGridView1.Size = new System.Drawing.Size(1297, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(1732, 509);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.Visible = false;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FirstName
             // 
@@ -138,11 +148,26 @@
             this.Login.UseColumnTextForButtonValue = true;
             this.Login.Width = 225;
             // 
+            // classDBBindingSource
+            // 
+            this.classDBBindingSource.DataSource = typeof(CDD.ClassDB);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(70, 639);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 92;
+            this.dataGridView2.RowTemplate.Height = 37;
+            this.dataGridView2.Size = new System.Drawing.Size(1412, 309);
+            this.dataGridView2.TabIndex = 4;
+            // 
             // AdminWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2127, 1160);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -151,6 +176,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classDBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +196,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewButtonColumn Login;
+        private System.Windows.Forms.BindingSource classDBBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

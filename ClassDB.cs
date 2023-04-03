@@ -191,6 +191,30 @@ namespace CDD
             time = time / 2;
             string ntime = "";
 
+            double minutes=0;
+            string min = "00";
+            if (time / 100 >= .1)
+            {
+                minutes = time / 100;
+                minutes = minutes * 60;
+
+            }
+            if (time / 10 >= .1)
+            {
+                minutes = time / 10;
+                minutes = minutes * 60;
+            }
+            if (minutes <= 9)
+            {
+                min = "0" + minutes.ToString();
+            }
+            else
+            {
+                min = minutes.ToString();
+            }
+            ntime = ntime + min;
+
+
             if (time < 12)
             {
                 ntime = time.ToString() + "AM";
@@ -205,9 +229,7 @@ namespace CDD
                 time = time - 12;
                 ntime = time.ToString() + "PM";
             }
-                
-           
-            
+
             return ntime;
         }
 

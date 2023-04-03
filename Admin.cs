@@ -24,7 +24,7 @@ namespace CDD
         }
         public override void removeClass(Class c) { throw new NotImplementedException(); }
 
-        public void addSpecialClass(ref Class c, bool doAnyway, ref Student s)
+        public void addStudent(ref Class c, bool doAnyway, ref Student s)
         {
             bool previous = false;
             foreach (Class cl1 in s.classHistory)
@@ -50,6 +50,18 @@ namespace CDD
 
 
         }
+
+        public void makeClass(Class c, ref ClassDB db)
+        {
+            db.classes.Add(c);
+        }
+
+        public void removeClass(Class c, ref ClassDB db)
+        {
+            //db.classes.Remove(c);
+            // destructor? 
+        }
+
         public void ChangeClassFac(ref Class c, ref Faculty f1, ref Faculty f2)
         {
             c.Prof = f1.getUsername();
@@ -58,10 +70,11 @@ namespace CDD
 
 
         }
-        public void ChangeClassTime(ref Class c, string endt, string startT)
+        public void ChangeClassTime(ref Class c, string endt, string startT, string tb, string days)
         {
             c.StartTime = startT;
             c.EndTime = endt;
+            c.Days = days;
         }
     }
 
