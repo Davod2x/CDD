@@ -61,6 +61,7 @@ namespace CDD
 
         private void studentViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView2.Visible = false;
             string[] row;
             dataGridView1.Rows.Clear();
             foreach(User u in rs.userDB.users)
@@ -71,6 +72,7 @@ namespace CDD
                     dataGridView1.Rows.Add(row);
                 }
             }
+            dataGridView1.Visible = true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -93,6 +95,7 @@ namespace CDD
 
         private void facultyViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView2.Visible=false;
             string[] row;
             dataGridView1.Rows.Clear();
             foreach (User u in rs.userDB.users)
@@ -103,6 +106,16 @@ namespace CDD
                     dataGridView1.Rows.Add(row);
                 }
             }
+            dataGridView1.Visible = true;
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //rs.classDB.editClass(e.RowIndex, dataGridView2.Columns[e.ColumnIndex].Name, dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
         }
     }
 }

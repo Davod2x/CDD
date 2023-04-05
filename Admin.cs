@@ -76,6 +76,31 @@ namespace CDD
             c.EndTime = endt;
             c.Days = days;
         }
+
+        public void ChangecClass(ref ClassDB db, int index, string change, string info)
+        {
+            if (change == "dpt")
+            {
+                //db.classes[index].
+            }
+            if (change == "startT")
+            {
+
+            }
+            if (change == "endT")
+            {
+
+            }
+            if (change == "dpt")
+            {
+
+            }
+            if (change == "dpt")
+            {
+
+            }
+            //db.classes[index].
+        }
     }
 
 

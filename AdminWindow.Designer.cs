@@ -161,6 +161,7 @@
             this.dataGridView2.RowTemplate.Height = 37;
             this.dataGridView2.Size = new System.Drawing.Size(1412, 309);
             this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // AdminWindow
             // 

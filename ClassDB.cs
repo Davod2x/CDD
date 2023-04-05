@@ -186,49 +186,39 @@ namespace CDD
             return Reverse(days);
         }
 
-        public string timeConversion(int time)
+        public string timeConversion(double time)
         {
+            
+            
             time = time / 2;
+            string timeString = time.ToString();
             string ntime = "";
 
-            double minutes=0;
-            string min = "00";
-            if (time / 100 >= .1)
+            //double minutes=0;
+            string min = ":00";
+            if (timeString.Contains(".5"))
             {
-                minutes = time / 100;
-                minutes = minutes * 60;
-
+                min = ":30";
             }
-            if (time / 10 >= .1)
-            {
-                minutes = time / 10;
-                minutes = minutes * 60;
-            }
-            if (minutes <= 9)
-            {
-                min = "0" + minutes.ToString();
-            }
-            else
-            {
-                min = minutes.ToString();
-            }
-            ntime = ntime + min;
-
+           
+           
 
             if (time < 12)
             {
-                ntime = time.ToString() + "AM";
+                ntime = time.ToString()   + min + "AM";
             }
 
             if (time == 12)
             {
-                ntime = time.ToString() + "PM";
+                ntime = time.ToString()   + min + "PM";
             }
             if(time > 12)
             {
                 time = time - 12;
-                ntime = time.ToString() + "PM";
+                ntime = time.ToString()  + min + "PM";
             }
+
+
 
             return ntime;
         }

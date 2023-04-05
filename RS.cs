@@ -22,6 +22,11 @@ namespace CDD
             
            // this.CourseHistory = newCourseHistory("CourseHistory.txt")
         }
+        public RS(string userDB, string classDB)
+        {
+            this.userDB = new UserDB(userDB, "CourseHistory.txt");
+            this.classDB = new ClassDB(classDB, this.userDB, "S23");
+        }
         public void run()
         {
             Application.EnableVisualStyles();

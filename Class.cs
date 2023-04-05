@@ -51,11 +51,9 @@ namespace CDD
             this.Days = days;
             this.EndTime = endTime;
             this.Students = new List<Student>();   
-            Course = Dpt + "-"+ classNum+ "-"+ section;
-            FormattedTime = StartTime+ "-" + EndTime;
+            
             this.Conflict = false;
-            this.Term = null;
-            this.Grade = null;
+            
         }
         public Class(string dpt, string classNum, string section, string Term, string credits, string Grade, double gpa)
         {
@@ -63,7 +61,7 @@ namespace CDD
             this.ClassNum = classNum;
             this.Section = section;
             this.Credits = credits;
-            Course = Dpt + "-" + classNum + "-" + section;
+           
             this.Term = Term;
             this.Grade = Grade;
             this.Gpa = gpa;
@@ -99,13 +97,15 @@ namespace CDD
         }
         public override string ToString()
         {
+            Course = Dpt + "-" + ClassNum + "-" + Section;
+            FormattedTime = StartTime + "-" + EndTime;
             if (Grade == null)
             {
-                return this.Course + " " + this.Name + " " + this.Prof + " " + this.Credits + " " + this.SeatsAvail + " " + this.Days + " " + this.FormattedTime;
+                return Course + " " + Name + " " + Prof + " " + Credits + " " + SeatsAvail + " " + Days + " " + FormattedTime;
             }
             else
             {
-                return this.Course + " " + this.Term + " " + this.Credits + " " + this.Grade + " " + this.Gpa;
+                return Course + " " + Term + " " + Credits + " " + Grade + " " + Gpa;
             }
         }
 

@@ -14,7 +14,7 @@ namespace CDD
         [STAThread]
         static void Main()
         {
-            RS rs = new RS();
+            RS rs = new RS("ZUserDB.txt","ZClassDB.txt");
             rs.run();
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
