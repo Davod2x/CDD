@@ -42,6 +42,7 @@
             this.Login = new System.Windows.Forms.DataGridViewButtonColumn();
             this.classDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classDBBindingSource)).BeginInit();
@@ -155,6 +156,8 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remove});
             this.dataGridView2.Location = new System.Drawing.Point(70, 639);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 92;
@@ -162,6 +165,15 @@
             this.dataGridView2.Size = new System.Drawing.Size(1412, 309);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "";
+            this.Remove.MinimumWidth = 11;
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 225;
             // 
             // AdminWindow
             // 
@@ -199,5 +211,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Login;
         private System.Windows.Forms.BindingSource classDBBindingSource;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

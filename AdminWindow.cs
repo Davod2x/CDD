@@ -111,11 +111,24 @@ namespace CDD
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "Remove")
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to drop this course", "Add Course", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    
+                    rs.classDB.removeClass(e.RowIndex);
+                }
+            }
+            dataGridView2.Update();
         }
         private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             //rs.classDB.editClass(e.RowIndex, dataGridView2.Columns[e.ColumnIndex].Name, dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+            Class c = new Class((string)dataGridView2.Rows[e.RowIndex].Cells[3].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[4].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[5].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[2].Value,
+               (string)dataGridView2.Rows[e.RowIndex].Cells[6].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[7].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[8].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[12].Value,
+               (string)dataGridView2.Rows[e.RowIndex].Cells[11].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[10].Value);
+            rs.classDB.classes[e.RowIndex] = c;
         }
     }
 }

@@ -70,6 +70,15 @@ namespace CDD
         public void addStudent(Student s)
         {
             Students.Add(s);
+
+        }
+        public void removeStudents()
+        {
+            foreach(Student s in Students)
+            {
+                s.removeClass(this);
+            }
+            Students.Clear();
         }
 
         //public Class(string user, string classes, string coursename,string Term, string credits, string Grade)

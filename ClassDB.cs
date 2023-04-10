@@ -186,36 +186,35 @@ namespace CDD
             return Reverse(days);
         }
 
-        public string timeConversion(double time)
+        public string timeConversion(int time)
         {
-            
-            
-            time = time / 2;
-            string timeString = time.ToString();
-            string ntime = "";
 
-            //double minutes=0;
             string min = ":00";
-            if (timeString.Contains(".5"))
+            if (time % 2 != 0)
             {
                 min = ":30";
             }
+            time = time / 2;
+            
+            string ntime = "";
+
+            
            
            
 
             if (time < 12)
             {
-                ntime = time.ToString()   + min + "AM";
+                ntime = time.ToString() + min   + "AM";
             }
 
             if (time == 12)
             {
-                ntime = time.ToString()   + min + "PM";
+                ntime = time.ToString() + min   + "PM";
             }
             if(time > 12)
             {
                 time = time - 12;
-                ntime = time.ToString()  + min + "PM";
+                ntime = time.ToString() + min + "PM";
             }
 
 
@@ -250,12 +249,26 @@ namespace CDD
 
         }
 
-        public void removeClass(Class c)
+        public void removeClass(int index)
         {
-            classes.Remove(c);
+            classes[index].removeStudents();
+            
+            classes.RemoveAt(index);
+            
         }
 
-
+        public Class getClass(string courseName)
+        {
+            Class cl= null;
+            foreach( Class c in classes)
+            {
+              if (c.Name.Equals(courseName))
+                {
+                    cl = c;
+                }
+            }
+            return cl;
+        }
     }
 }
 

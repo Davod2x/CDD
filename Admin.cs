@@ -58,8 +58,13 @@ namespace CDD
 
         public void removeClass(Class c, ref ClassDB db)
         {
-            //db.classes.Remove(c);
-            // destructor? 
+            foreach (Class cl in db.classes)
+            {
+                if (cl == c)
+                {
+                    db.classes.Remove(c);
+                }
+            }
         }
 
         public void ChangeClassFac(ref Class c, ref Faculty f1, ref Faculty f2)
@@ -77,30 +82,30 @@ namespace CDD
             c.Days = days;
         }
 
-        public void ChangecClass(ref ClassDB db, int index, string change, string info)
-        {
-            if (change == "dpt")
-            {
-                //db.classes[index].
-            }
-            if (change == "startT")
-            {
+        //public void ChangecClass(ref ClassDB db, int index, string change, string info)
+        //{
+        //    if (change == "dpt")
+        //    {
+        //        //db.classes[index].
+        //    }
+        //    if (change == "startT")
+        //    {
 
-            }
-            if (change == "endT")
-            {
+        //    }
+        //    if (change == "endT")
+        //    {
 
-            }
-            if (change == "dpt")
-            {
+        //    }
+        //    if (change == "dpt")
+        //    {
 
-            }
-            if (change == "dpt")
-            {
+        //    }
+        //    if (change == "dpt")
+        //    {
 
-            }
-            //db.classes[index].
-        }
+        //    }
+        //    //db.classes[index].
+        //}
     }
 
 
