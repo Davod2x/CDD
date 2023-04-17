@@ -12,6 +12,7 @@ namespace CDD
         //public int numclasses { get; set; }
         //public string coursename { get; set; }
         public string Term { get; set; }
+
         public string Grade { get; set; }
         //public string classes { get; set; }
         public string Name { get; set; }

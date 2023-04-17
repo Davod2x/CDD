@@ -15,15 +15,17 @@ namespace CDD
         private string[] lines;
         private string[] strings;
         private string curTerm;
+        private UserDB userDB;
 
 
 
-        public ClassDB(string fname, UserDB userDB, string curTerm)
+        public ClassDB(string fname, ref UserDB userDB, string curTerm)
         {
             this.curTerm = curTerm;
             this.lines = File.ReadAllLines(fname);
             this.classes = new List<Class>();
             this.whitespace = new char[] { ' ', '\t' };
+            this.userDB= userDB;
             List<string> s = new List<string>();
 
             foreach (string line in lines)
@@ -252,7 +254,8 @@ namespace CDD
         public void removeClass(int index)
         {
             classes[index].removeStudents();
-            
+            User prof = userDB.GetUser(classes[index].Prof);
+            userDB.users[userDB.users.IndexOf(prof)].removeClass(classes[index]);
             classes.RemoveAt(index);
             
         }

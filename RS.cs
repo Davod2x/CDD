@@ -18,14 +18,14 @@ namespace CDD
         public RS()
         { 
             this.userDB = new UserDB("UserDB.txt", "CourseHistory.txt");
-            this.classDB = new ClassDB("ClassDB.txt", this.userDB, "S23");
+            this.classDB = new ClassDB("ClassDB.txt", ref this.userDB, "S23");
             
            // this.CourseHistory = newCourseHistory("CourseHistory.txt")
         }
         public RS(string userDB, string classDB)
         {
             this.userDB = new UserDB(userDB, "CourseHistory.txt");
-            this.classDB = new ClassDB(classDB, this.userDB, "S23");
+            this.classDB = new ClassDB(classDB, ref this.userDB, "S23");
         }
         public void run()
         {

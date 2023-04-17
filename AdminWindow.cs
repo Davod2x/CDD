@@ -44,6 +44,7 @@ namespace CDD
 
         private void viewOfferedCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView1.Visible = false;
             dataGridView2.DataSource = rs.classDB.classes;
             dataGridView2.Visible = true;
             //string[] row;
@@ -113,7 +114,7 @@ namespace CDD
         {
             if (dataGridView2.Columns[e.ColumnIndex].Name == "Remove")
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to drop this course", "Add Course", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove this course", "Add Course", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     

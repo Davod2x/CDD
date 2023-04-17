@@ -59,7 +59,7 @@
             this.facultyViewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2127, 45);
+            this.menuStrip1.Size = new System.Drawing.Size(2813, 45);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,7 +94,7 @@
             this.UName,
             this.Password,
             this.Login});
-            this.dataGridView1.Location = new System.Drawing.Point(39, 100);
+            this.dataGridView1.Location = new System.Drawing.Point(39, 288);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 92;
             this.dataGridView1.RowTemplate.Height = 37;
@@ -158,12 +158,13 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Remove});
-            this.dataGridView2.Location = new System.Drawing.Point(70, 639);
+            this.dataGridView2.Location = new System.Drawing.Point(39, 288);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 92;
             this.dataGridView2.RowTemplate.Height = 37;
-            this.dataGridView2.Size = new System.Drawing.Size(1412, 309);
+            this.dataGridView2.Size = new System.Drawing.Size(2312, 509);
             this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.Visible = false;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // Remove
@@ -179,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2127, 1160);
+            this.ClientSize = new System.Drawing.Size(2813, 1160);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
