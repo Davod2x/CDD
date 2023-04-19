@@ -111,6 +111,7 @@ namespace CDD
                     place++;
                     Grade = s[place];
                     place++;
+                    
                     foreach (User user in users)
                     {
                         if (user.getUsername() == username)
@@ -158,12 +159,36 @@ namespace CDD
             return desired;
         }
 
-        private void addUser(User user)
+        public void addUser(User user)
         {
             users.Add(user);
         }
-        private void removeUser(User user)
+        public void removeUser(User user)
         {
+            if (user.getStatus() == "student")
+            {
+                Student s = (Student)user;
+                foreach(Class c in user.classes)
+                {
+                    c.removeStudent(user);
+                }
+                Faculty f =(Faculty)users[users.IndexOf(GetUser(s.Advisor))];
+                f.removeAdvisee(s);
+                users[users.IndexOf(GetUser(s.Advisor))] = f;
+            }
+            else
+            {
+                Faculty f = (Faculty)user;
+                foreach(Student s in f.Advisees)
+                {
+                    s.Advisor = "staff";
+                }
+                foreach(Class c in f.classes)
+                {
+                    c.Prof = "staff";
+                }
+                
+            }
             users.Remove(user);
         }
         public void PrintUsers()
@@ -243,6 +268,7 @@ namespace CDD
 
             return GPA;
         }
+        
 
     }
 }

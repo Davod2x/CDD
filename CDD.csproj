@@ -90,7 +90,6 @@
     <Compile Include="StudentWindow.Designer.cs">
       <DependentUpon>StudentWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransactionDB.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDB.cs" />
     <Compile Include="ViewAdd.xaml.cs">

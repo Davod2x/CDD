@@ -73,7 +73,11 @@ namespace CDD
             Students.Add(s);
 
         }
-        public void removeStudents()
+        public void removeStudent(User user)
+        {
+            Students.Remove((Student)user);
+        }
+        public void removeAllStudents()
         {
             foreach(Student s in Students)
             {

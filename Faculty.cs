@@ -28,6 +28,11 @@ namespace CDD
         }
         public override void removeClass(Class c) { classes.Remove(c); }
 
+        public void removeAdvisee(Student s)
+        {
+            Advisees.Remove(s);
+        }
+
         public void viewStudents()
         {
             foreach (Class cl in classes)

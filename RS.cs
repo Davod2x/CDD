@@ -22,9 +22,9 @@ namespace CDD
             
            // this.CourseHistory = newCourseHistory("CourseHistory.txt")
         }
-        public RS(string userDB, string classDB)
+        public RS(string userDB, string classDB, string courseHistory)
         {
-            this.userDB = new UserDB(userDB, "CourseHistory.txt");
+            this.userDB = new UserDB(userDB, courseHistory);
             this.classDB = new ClassDB(classDB, ref this.userDB, "S23");
         }
         public void run()

@@ -15,7 +15,7 @@ namespace CDD
         public int currentClassesNum { get; set; } 
         public double gpaEarned {get; private set;}
         int totalClassesTaken;
-        public string Advisor { get; private set;}
+        public string Advisor { get; set;}
         public bool ScheduleApproved { get; set; }
         public Student(string fname, string lname, string mname, string username, string password, string advisor)
             : base(fname, lname, mname, username, password)
@@ -216,6 +216,10 @@ namespace CDD
         public override void addClass(Class c)
         {
             throw new NotImplementedException();
+        }
+        public override string ToString()
+        {
+            return this.getfName() + " " + this.getmName() + " " + this.getlName() + " " + this.getUsername() + " " + this.Advisor;
         }
     }
 

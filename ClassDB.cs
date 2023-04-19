@@ -253,7 +253,7 @@ namespace CDD
 
         public void removeClass(int index)
         {
-            classes[index].removeStudents();
+            classes[index].removeAllStudents();
             User prof = userDB.GetUser(classes[index].Prof);
             userDB.users[userDB.users.IndexOf(prof)].removeClass(classes[index]);
             classes.RemoveAt(index);

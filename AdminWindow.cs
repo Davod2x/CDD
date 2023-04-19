@@ -65,6 +65,7 @@ namespace CDD
             dataGridView2.Visible = false;
             string[] row;
             dataGridView1.Rows.Clear();
+            dataGridView1.Columns[4].HeaderText = "Advisor";
             foreach(User u in rs.userDB.users)
             {
                 if (u.getStatus() == "student")
@@ -74,6 +75,14 @@ namespace CDD
                 }
             }
             dataGridView1.Visible = true;
+        }
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 4)
+            {
+                Student s = (Student)rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                s.Advisor = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -91,6 +100,11 @@ namespace CDD
                     FacultyWindow fWindow = new FacultyWindow(ref rs, u);
                     fWindow.Show();
                 }
+            }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "RemoveUser")
+            {
+                rs.userDB.removeUser(rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value));
+                dataGridView1.Rows.RemoveAt(e.RowIndex);
             }
         }
 
