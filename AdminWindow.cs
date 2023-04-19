@@ -82,6 +82,7 @@ namespace CDD
             {
                 Student s = (Student)rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value);
                 s.Advisor = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+                rs.userDB.users[rs.userDB.users.IndexOf(s)] = s;
             }
         }
 
