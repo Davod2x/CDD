@@ -78,12 +78,13 @@ namespace CDD
         }
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 4)
-            {
-                Student s = (Student)rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-                s.Advisor = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
-                rs.userDB.users[rs.userDB.users.IndexOf(s)] = s;
-            }
+            User s = rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+            Console.WriteLine(s);
+            Student st = new Student((string)dataGridView1.Rows[e.RowIndex].Cells[0].Value, (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value, (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value,
+                (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value, s.getPassword(), (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+            rs.userDB.removeUser(s);
+            rs.userDB.addUser(st);
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
