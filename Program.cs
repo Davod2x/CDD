@@ -14,6 +14,7 @@ namespace CDD
         [STAThread]
         static void Main()
         {
+            //Bababooey
             RS rs = new RS("ZUserDB.txt","ZClassDB.txt","ZCourseHistory.txt");
             rs.run();
             //Application.EnableVisualStyles();

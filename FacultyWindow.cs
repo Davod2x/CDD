@@ -109,7 +109,7 @@ namespace CDD
             string[] row;
             foreach(Student s in user.Advisees)
             {
-                row = new string[] { s.getUsername(), s.getfName(), s.getmName(), s.getlName(), s.Advisor};
+                row = new string[] { s.getUsername(), s.getfName(), s.getmName(), s.getlName()};
             
                 dataGridView3.Rows.Add(row);
                 foreach(Class c in s.classes)
