@@ -409,7 +409,7 @@
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21});
-            this.dataGridView4.Location = new System.Drawing.Point(13, 126);
+            this.dataGridView4.Location = new System.Drawing.Point(33, 295);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 92;
             this.dataGridView4.RowTemplate.Height = 37;

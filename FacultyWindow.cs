@@ -92,7 +92,7 @@ namespace CDD
                     dataGridView2.Rows.Add(row);
                     foreach (Student s in c.Students)
                     {
-                        row = new string[] { s.ToString(), " ", " ", " ", " ", " ", " " };
+                        row = new string[] { s.getUsername(),s.getfName(), s.getmName(), s.getlName()};
                         dataGridView2.Rows.Add(row);
                     }
                 }
@@ -109,7 +109,7 @@ namespace CDD
             string[] row;
             foreach(Student s in user.Advisees)
             {
-                row = s.ToString().Split(' ') ;
+                row = new string[] { s.getUsername(), s.getfName(), s.getmName(), s.getlName(), s.Advisor};
             
                 dataGridView3.Rows.Add(row);
                 foreach(Class c in s.classes)
