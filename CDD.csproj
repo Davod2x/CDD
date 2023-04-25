@@ -116,7 +116,6 @@
     <EmbeddedResource Include="StudentWindow.resx">
       <DependentUpon>StudentWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\ClassDB.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -135,6 +134,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

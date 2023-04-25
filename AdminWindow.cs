@@ -76,14 +76,22 @@ namespace CDD
             }
             dataGridView1.Visible = true;
         }
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             User s = rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-            Console.WriteLine(s);
-            Student st = new Student((string)dataGridView1.Rows[e.RowIndex].Cells[0].Value, (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value, (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value,
-                (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value, s.getPassword(), (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-            rs.userDB.removeUser(s);
-            rs.userDB.addUser(st);
+            
+            Student st = (Student)s;
+            Faculty f = (Faculty)rs.userDB.GetUser(st.Advisor);
+            f.removeAdvisee(st);
+            if (e.ColumnIndex == 4)
+            {
+                st.Advisor = (string) dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+            }
+            Faculty newAdvisor = (Faculty)rs.userDB.GetUser(st.Advisor);
+            newAdvisor.addStudent(st);
+            rs.userDB.users[rs.userDB.users.IndexOf(s)] = st;
+            rs.userDB.users[rs.userDB.users.IndexOf(f)] = f;
+            rs.userDB.users[rs.userDB.users.IndexOf(newAdvisor)] = newAdvisor;
 
         }
 
@@ -146,6 +154,11 @@ namespace CDD
                (string)dataGridView2.Rows[e.RowIndex].Cells[6].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[7].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[8].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[12].Value,
                (string)dataGridView2.Rows[e.RowIndex].Cells[11].Value, (string)dataGridView2.Rows[e.RowIndex].Cells[10].Value);
             rs.classDB.classes[e.RowIndex] = c;
+        }
+
+        private void AdminWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
