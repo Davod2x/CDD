@@ -106,6 +106,7 @@ namespace CDD
             dataGridView1.Visible = true;
             
             dataGridView3.Visible = false;
+            label1.Visible = false;
         }
 
         private void dataGridView2_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
@@ -153,6 +154,7 @@ namespace CDD
             dataGridView1.Visible = false;
             
             dataGridView3.Visible = true;
+            label1.Visible = false;
         }
 
         private void logoutToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -184,6 +186,7 @@ namespace CDD
                 label1.Text = "Schedule Not Yet Approved";
                 label1.ForeColor = Color.Red;
             }
+            label1.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -239,6 +242,7 @@ namespace CDD
             dataGridView1.Visible = false;
 
             dataGridView3.Visible = true;
+            label1.Visible = false;
         }
     }
 }

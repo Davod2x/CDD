@@ -383,14 +383,14 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1774, 47);
+            this.menuStrip1.Size = new System.Drawing.Size(1774, 45);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // viewCoursesToolStripMenuItem
             // 
             this.viewCoursesToolStripMenuItem.Name = "viewCoursesToolStripMenuItem";
-            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 43);
+            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 41);
             this.viewCoursesToolStripMenuItem.Text = "View/Add Courses";
             this.viewCoursesToolStripMenuItem.Click += new System.EventHandler(this.viewCoursesToolStripMenuItem_Click_1);
             // 
@@ -400,8 +400,8 @@
             this.viewNextTermScheduleToolStripMenuItem,
             this.viewCurrentTermScheduleToolStripMenuItem});
             this.viewSceduleToolStripMenuItem.Name = "viewSceduleToolStripMenuItem";
-            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 43);
-            this.viewSceduleToolStripMenuItem.Text = "View Scedule";
+            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(211, 41);
+            this.viewSceduleToolStripMenuItem.Text = "View Schedule";
             this.viewSceduleToolStripMenuItem.Click += new System.EventHandler(this.viewSceduleToolStripMenuItem_Click_1);
             // 
             // viewNextTermScheduleToolStripMenuItem
@@ -421,21 +421,21 @@
             // viewCourseHistoryToolStripMenuItem
             // 
             this.viewCourseHistoryToolStripMenuItem.Name = "viewCourseHistoryToolStripMenuItem";
-            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 43);
+            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 41);
             this.viewCourseHistoryToolStripMenuItem.Text = "View Course History";
             this.viewCourseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewCourseHistoryToolStripMenuItem_Click_1);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 43);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 41);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(53, 885);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 29);
