@@ -127,24 +127,7 @@ namespace CDD
 
         private void viewSceduleToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            string[] row;
-            char[] ch = new char[] { ' ' };
-            dataGridView1.Visible = false;
             
-            dataGridView3.Visible = false;
-            dataGridView2.Rows.Clear();
-
-            foreach (Class c in user.classes)
-            {
-                row = c.ToString().Split(ch);
-                dataGridView2.Rows.Add(row);
-                
-            }
-
-
-            dataGridView2.Visible = true;
-            
-            label1.Visible = true;
         }
 
         private void viewCourseHistoryToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -211,6 +194,51 @@ namespace CDD
         private void advisorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             label1.Text = user.Advisor;
+        }
+
+        private void viewNextTermScheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] row;
+            char[] ch = new char[] { ' ' };
+            dataGridView1.Visible = false;
+
+            dataGridView3.Visible = false;
+            dataGridView2.Rows.Clear();
+
+            foreach (Class c in user.classes)
+            {
+                row = c.ToString().Split(ch);
+                dataGridView2.Rows.Add(row);
+
+            }
+
+
+            dataGridView2.Visible = true;
+
+            label1.Visible = true;
+        }
+
+        private void viewCurrentTermScheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Student student = (Student)user;
+            string[] row;
+            dataGridView3.Rows.Clear();
+
+            foreach (Class c in user.classHistory)
+            {
+                if (c.Grade == "N" && c.Term == rs.classDB.CurTerm)
+                {
+                    row = c.ToString().Split(new char[] { ' ' });
+                    dataGridView3.Rows.Add(row);
+                }
+            }
+
+           
+            dataGridView2.Visible = false;
+
+            dataGridView1.Visible = false;
+
+            dataGridView3.Visible = true;
         }
     }
 }

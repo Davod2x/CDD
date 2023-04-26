@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Term = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,9 +59,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.viewCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSceduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewNextTermScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCurrentTermScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCourseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.advisorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -74,8 +75,8 @@
             // 
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -146,8 +147,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -255,8 +256,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -379,48 +380,57 @@
             this.viewCoursesToolStripMenuItem,
             this.viewSceduleToolStripMenuItem,
             this.viewCourseHistoryToolStripMenuItem,
-            this.logoutToolStripMenuItem,
-            this.advisorToolStripMenuItem});
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1774, 45);
+            this.menuStrip1.Size = new System.Drawing.Size(1774, 47);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // viewCoursesToolStripMenuItem
             // 
             this.viewCoursesToolStripMenuItem.Name = "viewCoursesToolStripMenuItem";
-            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 41);
+            this.viewCoursesToolStripMenuItem.Size = new System.Drawing.Size(257, 43);
             this.viewCoursesToolStripMenuItem.Text = "View/Add Courses";
             this.viewCoursesToolStripMenuItem.Click += new System.EventHandler(this.viewCoursesToolStripMenuItem_Click_1);
             // 
             // viewSceduleToolStripMenuItem
             // 
+            this.viewSceduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewNextTermScheduleToolStripMenuItem,
+            this.viewCurrentTermScheduleToolStripMenuItem});
             this.viewSceduleToolStripMenuItem.Name = "viewSceduleToolStripMenuItem";
-            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 41);
+            this.viewSceduleToolStripMenuItem.Size = new System.Drawing.Size(196, 43);
             this.viewSceduleToolStripMenuItem.Text = "View Scedule";
             this.viewSceduleToolStripMenuItem.Click += new System.EventHandler(this.viewSceduleToolStripMenuItem_Click_1);
+            // 
+            // viewNextTermScheduleToolStripMenuItem
+            // 
+            this.viewNextTermScheduleToolStripMenuItem.Name = "viewNextTermScheduleToolStripMenuItem";
+            this.viewNextTermScheduleToolStripMenuItem.Size = new System.Drawing.Size(498, 48);
+            this.viewNextTermScheduleToolStripMenuItem.Text = "View Next Term Schedule";
+            this.viewNextTermScheduleToolStripMenuItem.Click += new System.EventHandler(this.viewNextTermScheduleToolStripMenuItem_Click);
+            // 
+            // viewCurrentTermScheduleToolStripMenuItem
+            // 
+            this.viewCurrentTermScheduleToolStripMenuItem.Name = "viewCurrentTermScheduleToolStripMenuItem";
+            this.viewCurrentTermScheduleToolStripMenuItem.Size = new System.Drawing.Size(498, 48);
+            this.viewCurrentTermScheduleToolStripMenuItem.Text = "View Current Term Schedule";
+            this.viewCurrentTermScheduleToolStripMenuItem.Click += new System.EventHandler(this.viewCurrentTermScheduleToolStripMenuItem_Click);
             // 
             // viewCourseHistoryToolStripMenuItem
             // 
             this.viewCourseHistoryToolStripMenuItem.Name = "viewCourseHistoryToolStripMenuItem";
-            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 41);
+            this.viewCourseHistoryToolStripMenuItem.Size = new System.Drawing.Size(277, 43);
             this.viewCourseHistoryToolStripMenuItem.Text = "View Course History";
             this.viewCourseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewCourseHistoryToolStripMenuItem_Click_1);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 41);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 43);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click_1);
-            // 
-            // advisorToolStripMenuItem
-            // 
-            this.advisorToolStripMenuItem.Name = "advisorToolStripMenuItem";
-            this.advisorToolStripMenuItem.Size = new System.Drawing.Size(125, 41);
-            this.advisorToolStripMenuItem.Text = "advisor";
-            this.advisorToolStripMenuItem.Click += new System.EventHandler(this.advisorToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -502,7 +512,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewButtonColumn DropCourse;
-        private System.Windows.Forms.ToolStripMenuItem advisorToolStripMenuItem;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem viewNextTermScheduleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewCurrentTermScheduleToolStripMenuItem;
     }
 }

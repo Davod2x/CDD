@@ -166,7 +166,7 @@ namespace CDD
             double totalCredits = 0.0;
             foreach (Class c in this.classHistory)
             {
-                if (c.Grade != "N" || c.Grade !="S")
+                if (!c.Grade.Contains("N") && c.Grade != "S")
                 {
                     gpaEarned += c.Gpa;
                     totalCredits += double.Parse(c.Credits);
