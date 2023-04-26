@@ -217,6 +217,17 @@ namespace CDD
 
 
             dataGridView2.Visible = true;
+            if (user.ScheduleApproved == true)
+            {
+                label1.Text = "Schedule Approved";
+                label1.ForeColor = Color.LimeGreen;
+            }
+            else
+            {
+                label1.Text = "Schedule Not Yet Approved";
+                label1.ForeColor = Color.Red;
+            }
+            
 
             label1.Visible = true;
         }

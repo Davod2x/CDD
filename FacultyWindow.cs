@@ -158,7 +158,7 @@ namespace CDD
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Student s = (Student)rs.userDB.GetUser((string)dataGridView3.Rows[e.RowIndex].Cells[3].Value);
+            Student s = (Student)rs.userDB.GetUser((string)dataGridView3.Rows[e.RowIndex].Cells[0].Value);
             if (dataGridView3.Columns[e.ColumnIndex].Name == "Approve")
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you would like to approve schedule", "Add Course", MessageBoxButtons.YesNo);
@@ -168,7 +168,8 @@ namespace CDD
                     foreach(Student student in user.Advisees) { 
                         if(student == s)
                         {
-                            student.ScheduleApproved= true;
+                            student.ScheduleApproved = true;
+                            rs.userDB.users[rs.userDB.users.IndexOf(student)] = student;
                         }
                     }
 
