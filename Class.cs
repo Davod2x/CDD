@@ -51,7 +51,8 @@ namespace CDD
             this.StartTime = startTime;
             this.Days = days;
             this.EndTime = endTime;
-            this.Students = new List<Student>();   
+            this.Students = new List<Student>();
+            this.Term = "F23";
             
             this.Conflict = false;
             

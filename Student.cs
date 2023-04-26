@@ -89,7 +89,7 @@ namespace CDD
                     Grade = "RN";
                 }
                 
-                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "S23", c.Credits, Grade, 0.0);
+                Class cl = new Class(c.Dpt, c.ClassNum, c.Section, "F23", c.Credits, Grade, 0.0);
                 addClassHistory(cl);
                 classes.Add(c);
                 c.addStudent(this);
