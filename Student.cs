@@ -83,6 +83,10 @@ namespace CDD
                 c.Conflict = true;
                 throw new InvalidOperationException() ;
             }
+            else if (c.SeatsAvail == 0)
+            {
+                throw new InvalidOperationException();
+            }
             else
             {
                 string Grade = "N";

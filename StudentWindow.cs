@@ -125,6 +125,16 @@ namespace CDD
 
                     }
                 }
+                else if(cl.SeatsAvail == 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Could Not Add Course: No Open Seats \n" + "Administrator Override?", "Add Course", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        panel1.Visible = true;
+
+
+                    }
+                }
                 
             }
         }
