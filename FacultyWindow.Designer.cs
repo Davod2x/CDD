@@ -165,48 +165,48 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewScheduleToolStripMenuItem,
+            this.vIewAllCoursesToolStripMenuItem,
             this.viewEnrolledStudentsToolStripMenuItem,
             this.viewAdviseeSchedulesToolStripMenuItem,
-            this.logoutToolStripMenuItem,
-            this.vIewAllCoursesToolStripMenuItem});
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2064, 47);
+            this.menuStrip1.Size = new System.Drawing.Size(2064, 45);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // viewScheduleToolStripMenuItem
             // 
             this.viewScheduleToolStripMenuItem.Name = "viewScheduleToolStripMenuItem";
-            this.viewScheduleToolStripMenuItem.Size = new System.Drawing.Size(211, 43);
+            this.viewScheduleToolStripMenuItem.Size = new System.Drawing.Size(211, 41);
             this.viewScheduleToolStripMenuItem.Text = "View Schedule";
             this.viewScheduleToolStripMenuItem.Click += new System.EventHandler(this.viewScheduleToolStripMenuItem_Click);
             // 
             // viewEnrolledStudentsToolStripMenuItem
             // 
             this.viewEnrolledStudentsToolStripMenuItem.Name = "viewEnrolledStudentsToolStripMenuItem";
-            this.viewEnrolledStudentsToolStripMenuItem.Size = new System.Drawing.Size(311, 43);
+            this.viewEnrolledStudentsToolStripMenuItem.Size = new System.Drawing.Size(311, 41);
             this.viewEnrolledStudentsToolStripMenuItem.Text = "View Enrolled Students";
             this.viewEnrolledStudentsToolStripMenuItem.Click += new System.EventHandler(this.viewEnrolledStudentsToolStripMenuItem_Click);
             // 
             // viewAdviseeSchedulesToolStripMenuItem
             // 
             this.viewAdviseeSchedulesToolStripMenuItem.Name = "viewAdviseeSchedulesToolStripMenuItem";
-            this.viewAdviseeSchedulesToolStripMenuItem.Size = new System.Drawing.Size(321, 43);
+            this.viewAdviseeSchedulesToolStripMenuItem.Size = new System.Drawing.Size(321, 41);
             this.viewAdviseeSchedulesToolStripMenuItem.Text = "View Advisee Schedules";
             this.viewAdviseeSchedulesToolStripMenuItem.Click += new System.EventHandler(this.viewAdviseeSchedulesToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 43);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(124, 41);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // vIewAllCoursesToolStripMenuItem
             // 
             this.vIewAllCoursesToolStripMenuItem.Name = "vIewAllCoursesToolStripMenuItem";
-            this.vIewAllCoursesToolStripMenuItem.Size = new System.Drawing.Size(235, 43);
+            this.vIewAllCoursesToolStripMenuItem.Size = new System.Drawing.Size(235, 41);
             this.vIewAllCoursesToolStripMenuItem.Text = "VIew All Courses";
             this.vIewAllCoursesToolStripMenuItem.Click += new System.EventHandler(this.vIewAllCoursesToolStripMenuItem_Click);
             // 

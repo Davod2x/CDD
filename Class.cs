@@ -53,7 +53,8 @@ namespace CDD
             this.EndTime = endTime;
             this.Students = new List<Student>();
             this.Term = "F23";
-            
+            this.Name = dpt + "-" + classNum + "-" + section;
+
             this.Conflict = false;
             
         }
@@ -63,7 +64,7 @@ namespace CDD
             this.ClassNum = classNum;
             this.Section = section;
             this.Credits = credits;
-           
+            this.Name = dpt + "-" + classNum + "-" + section;
             this.Term = Term;
             this.Grade = Grade;
             this.Gpa = gpa;
@@ -103,13 +104,10 @@ namespace CDD
 
         public static bool operator ==(Class c1, Class c2)
         {
-            return c1.Course == c2.Course;
+            return c1.Name == c2.Name;
         }
         public static bool operator !=(Class c1, Class c2) { return !(c1 == c2); }
-        public bool Equals(Class c)
-        {
-            return this.Course == c.Course && this.Grade == c.Grade;
-        }
+        
         public override string ToString()
         {
             Course = Dpt + "-" + ClassNum + "-" + Section;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CDD
 {
@@ -15,9 +16,11 @@ namespace CDD
         private RS rs;
         private Student user;
         private int rowIndex;
+        private bool Overridden = false;
+        private int index;
         public StudentWindow(ref RS rs, User u)
         {
-            this.rs= rs;
+            this.rs = rs;
             this.user = (Student)u;
             InitializeComponent();
         }
@@ -33,7 +36,7 @@ namespace CDD
 
             //}
         }
-        
+
         private void add(bool doAnyway, int index)
         {
             Class cl = rs.classDB.classes[index];
@@ -45,21 +48,50 @@ namespace CDD
             {
                 bool previous = false;
                 bool taking = false;
+                bool toMany = false;
+                bool conflict = false;
+                foreach (Class c in user.classes)
+                {
+                    if (cl == c)
+                    {
+                        taking = true;
+                    }
+                    else if (c.StartTime == cl.StartTime)
+                    {
+                        foreach (char x in cl.Days)
+                        {
+                            if (c.Days.Contains(x))
+                            {
+                                conflict = true;
+                            }
+                        }
+                    }
+                }
                 foreach (Class c in user.classHistory)
                 {
-                    if (rs.classDB.classes[index] == c)
+                    if (cl == c)
                     {
                         previous = true; break;
                     }
                 }
                 foreach (Class c in user.classes)
                 {
-                    if (rs.classDB.classes.Contains(c))
+                    if (c == cl)
                     {
                         taking = true; break;
                     }
                 }
+                int count = 0;
+                foreach (Class c in user.classes)
+                {
+                    count++;
+                }
+                if (count >= 4)
+                {
+                    toMany = true;
+                }
                 if (previous && !taking)
+
                 {
 
                     MessageBox.Show("Warning: Previously Taken Course");
@@ -67,21 +99,45 @@ namespace CDD
 
 
                 }
-                else
+                else if(conflict && !taking)
                 {
-                    MessageBox.Show("Warning: Already Taking or Time Conflict");
+                    MessageBox.Show("Warning: Time Conflict");
                     add(true, index);
                 }
+                else if (taking)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Could Not Add Course: Already Registered \n" + "Administrator Override?", "Add Course", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        panel1.Visible = true;
+                        
+
+                    }
+
+                }
+                else if (toMany)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Could Not Add Course: Overload Error \n" + "Administrator Override?", "Add Course", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        panel1.Visible = true;
+
+
+                    }
+                }
+                
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "AddCourse1"){
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "AddCourse1")
+            {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you would like to add this course", "Add Course", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     add(false, e.RowIndex);
+                    index = e.RowIndex;
 
                 }
             }
@@ -102,16 +158,16 @@ namespace CDD
             }
 
             dataGridView2.Visible = false;
-            
+
             dataGridView1.Visible = true;
-            
+
             dataGridView3.Visible = false;
             label1.Visible = false;
         }
 
         private void dataGridView2_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView2.Columns[e.ColumnIndex].Name == "DropCourse")
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "DropCourse")
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you would like to drop this course", "Add Course", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -119,16 +175,16 @@ namespace CDD
                     user.removeClass(user.classes[e.RowIndex]);
                     dataGridView2.Rows.RemoveAt(e.RowIndex);
                     user.ScheduleApproved = false;
-                    
+
 
                 }
             }
-           
+
         }
 
         private void viewSceduleToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void viewCourseHistoryToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -150,9 +206,9 @@ namespace CDD
 
             dataGridView3.Rows.Add(row);
             dataGridView2.Visible = false;
-            
+
             dataGridView1.Visible = false;
-            
+
             dataGridView3.Visible = true;
             label1.Visible = false;
         }
@@ -176,7 +232,7 @@ namespace CDD
 
         private void StudentWindow_Load(object sender, EventArgs e)
         {
-            if(user.ScheduleApproved == true)
+            if (user.ScheduleApproved == true)
             {
                 label1.Text = "Schedule Approved";
                 label1.ForeColor = Color.LimeGreen;
@@ -227,7 +283,7 @@ namespace CDD
                 label1.Text = "Schedule Not Yet Approved";
                 label1.ForeColor = Color.Red;
             }
-            
+
 
             label1.Visible = true;
         }
@@ -247,13 +303,38 @@ namespace CDD
                 }
             }
 
-           
+
             dataGridView2.Visible = false;
 
             dataGridView1.Visible = false;
 
             dataGridView3.Visible = true;
             label1.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string Username = textBox2.Text;
+            string password = textBox1.Text;
+            if (rs.userDB.validCredentials(Username, password))
+            {
+                User u;
+                u = rs.userDB.GetUser(Username);
+
+                if (u.getStatus() == "admin")
+                {
+                    add(true, index);
+                    MessageBox.Show("Success");
+                }
+                
+            }
+            else
+            {
+
+                MessageBox.Show("INVALID CREDENTIALS");
+
+            }
+            panel1.Visible = false;
         }
     }
 }

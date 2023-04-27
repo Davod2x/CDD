@@ -55,6 +55,7 @@ namespace CDD
             char[] ch = new char[] { ' ' };
             dataGridView2.Visible = false;
             dataGridView3.Visible = false;
+            dataGridView4.Visible = false;
             //button2.Visible = false;
             //dataGridView3.Visible = false;
             dataGridView1.Rows.Clear();
@@ -80,6 +81,7 @@ namespace CDD
         {
             dataGridView1.Visible = false;
             dataGridView3.Visible = false;
+            dataGridView4.Visible = false;
             dataGridView2.Rows.Clear();
             string[] row;
             foreach (Class c in user.classes)
@@ -105,6 +107,7 @@ namespace CDD
             
             dataGridView1.Visible=false;
             dataGridView2.Visible=false;
+            dataGridView4.Visible = false;
             dataGridView3.Rows.Clear();
             string[] row;
             foreach(Student s in user.Advisees)

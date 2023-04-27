@@ -65,7 +65,10 @@ namespace CDD
             dataGridView2.Visible = false;
             string[] row;
             dataGridView1.Rows.Clear();
-            dataGridView1.Columns[4].HeaderText = "Advisor";
+            DataGridViewColumn dataGridViewColumn = new DataGridViewTextBoxColumn();
+            dataGridViewColumn.HeaderText = "Advisor";
+            dataGridView1.Columns.Insert(4, dataGridViewColumn);
+            
             foreach(User u in rs.userDB.users)
             {
                 if (u.getStatus() == "student")
@@ -113,8 +116,14 @@ namespace CDD
             }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "RemoveUser")
             {
-                rs.userDB.removeUser(rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value));
-                dataGridView1.Rows.RemoveAt(e.RowIndex);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove this user", "Add Course", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    rs.userDB.removeUser(rs.userDB.GetUser((string)dataGridView1.Rows[e.RowIndex].Cells[3].Value));
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);
+                }
+                
             }
         }
 
@@ -123,6 +132,10 @@ namespace CDD
             dataGridView2.Visible=false;
             string[] row;
             dataGridView1.Rows.Clear();
+            if (dataGridView1.Columns[4].HeaderText == "Advisor")
+            {
+                dataGridView1.Columns.RemoveAt(4);
+            }
             foreach (User u in rs.userDB.users)
             {
                 if (u.getStatus() == "faculty")

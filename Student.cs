@@ -37,6 +37,8 @@ namespace CDD
         {
             bool taking = false;
             bool conflict = false;
+            
+            
             if (this.classes.Count > 0)
             {
                 foreach (Class cl in classes)
@@ -58,14 +60,14 @@ namespace CDD
                 }
             }
             bool previous = false;
-            foreach (Class cl in this.classHistory)
+            foreach (Class cl in classHistory)
             {
-                if (cl == c)
+                if (cl.Name == c.Name)
                 {
                     previous = true;
                 }
             }
-            if (currentClassesNum >=5 && !doAnyway)
+            if (currentClassesNum >=4 && !doAnyway)
             {
                 c.Conflict = true;
                 throw new InvalidOperationException("Schedule Overload & Time Conflict");

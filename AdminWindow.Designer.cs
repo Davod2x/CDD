@@ -36,15 +36,15 @@
             this.studentViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facultyViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.classDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Login = new System.Windows.Forms.DataGridViewButtonColumn();
             this.RemoveUser = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.classDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classDBBindingSource)).BeginInit();
@@ -109,36 +109,6 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
-            // classDBBindingSource
-            // 
-            this.classDBBindingSource.DataSource = typeof(CDD.ClassDB);
-            // 
-            // dataGridView2
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Remove});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 99);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 92;
-            this.dataGridView2.RowTemplate.Height = 37;
-            this.dataGridView2.Size = new System.Drawing.Size(2312, 509);
-            this.dataGridView2.TabIndex = 4;
-            this.dataGridView2.Visible = false;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // Remove
-            // 
-            this.Remove.HeaderText = "";
-            this.Remove.MinimumWidth = 11;
-            this.Remove.Name = "Remove";
-            this.Remove.Text = "Remove";
-            this.Remove.UseColumnTextForButtonValue = true;
-            this.Remove.Width = 225;
-            // 
             // FirstName
             // 
             this.FirstName.HeaderText = "First Name";
@@ -186,6 +156,36 @@
             this.RemoveUser.Text = "Remove";
             this.RemoveUser.UseColumnTextForButtonValue = true;
             this.RemoveUser.Width = 225;
+            // 
+            // classDBBindingSource
+            // 
+            this.classDBBindingSource.DataSource = typeof(CDD.ClassDB);
+            // 
+            // dataGridView2
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remove});
+            this.dataGridView2.Location = new System.Drawing.Point(0, 223);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 92;
+            this.dataGridView2.RowTemplate.Height = 37;
+            this.dataGridView2.Size = new System.Drawing.Size(2312, 509);
+            this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.Visible = false;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "";
+            this.Remove.MinimumWidth = 11;
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 225;
             // 
             // AdminWindow
             // 
