@@ -113,6 +113,10 @@ namespace CDD
                         
 
                     }
+                    else
+                    {
+                        cl.Conflict = false;
+                    }
 
                 }
                 else if (toMany)

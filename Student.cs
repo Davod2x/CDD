@@ -72,7 +72,8 @@ namespace CDD
                 c.Conflict = true;
                 throw new InvalidOperationException("Schedule Overload & Time Conflict");
             }
-            else if ((conflict || taking) && !doAnyway)
+
+            else if ((conflict) && !doAnyway)
             {
                 c.Conflict = true;
                 throw new InvalidOperationException();

@@ -53,8 +53,8 @@ namespace CDD
             this.EndTime = endTime;
             this.Students = new List<Student>();
             this.Term = "F23";
-            this.Name = dpt + "-" + classNum + "-" + section;
-
+            this.Name = dpt + "-" + classNum;
+            this.Course = name;
             this.Conflict = false;
             
         }
@@ -64,7 +64,8 @@ namespace CDD
             this.ClassNum = classNum;
             this.Section = section;
             this.Credits = credits;
-            this.Name = dpt + "-" + classNum + "-" + section;
+          
+            this.Name = dpt + "-" + classNum;
             this.Term = Term;
             this.Grade = Grade;
             this.Gpa = gpa;
@@ -110,15 +111,15 @@ namespace CDD
         
         public override string ToString()
         {
-            Course = Dpt + "-" + ClassNum + "-" + Section;
+            
             FormattedTime = StartTime + "-" + EndTime;
             if (Grade == null)
             {
-                return Course + " " + Name + " " + Prof + " " + Credits + " " + SeatsAvail + " " + Days + " " + FormattedTime;
+                return (Name + "-" + Section) + " " + Course + " " + Prof + " " + Credits + " " + SeatsAvail + " " + Days + " " + FormattedTime;
             }
             else
             {
-                return Course + " " + Term + " " + Credits + " " + Grade + " " + Gpa;
+                return (Dpt + "-" + ClassNum + "-" + Section) + " " + Term + " " + Credits + " " + Grade + " " + Gpa;
             }
         }
 
