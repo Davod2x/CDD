@@ -67,7 +67,8 @@ namespace CDD
             dataGridView1.Rows.Clear();
             DataGridViewColumn dataGridViewColumn = new DataGridViewTextBoxColumn();
             dataGridViewColumn.HeaderText = "Advisor";
-            dataGridView1.Columns.Insert(4, dataGridViewColumn);
+            if (!(dataGridView1.Columns[4].HeaderText == "Advisor"))
+            { dataGridView1.Columns.Insert(4, dataGridViewColumn); }
             
             foreach(User u in rs.userDB.users)
             {
